@@ -5,17 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+public class DifficultySelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_difficulty_selection);
     }
 
-//     Navigate to difficulty selection page onClick
-    protected void onClickDifficultySelection(View v){
-        startActivity(new Intent(this, DifficultySelectionActivity.class));
+    protected void onClickStartGame0(View v){
+        startActivity(new Intent(this, GameActivity.class));
     }
 
 
