@@ -5,4 +5,18 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="black_overlay">#66000000</color>
+
+    <!--<color name="colorPrimary">#1C1B1B  </color>-->
+    <!--<color name="colorPrimaryDark">#000000</color>-->
+    <!--<color name="colorAccent">#FFFF</color>-->
+    <color name="grey_light">#92A4AB</color>
+    <color name="blue">#64C5EC</color>
+    <color name="grey_medium">#69716F</color>
+    <color name="green_light">#4eb1b1</color>
+    <color name="red">#A90C0C</color>
+    <color name="Blue">#ff0000ff</color>
+    <color name="Grey">#ff444444</color>
+    <color name="Lemon">#F0E68C</color>
+    <color name="greenBackground">#008008</color>
+    <color name="turquoise">#42f4c5</color>
 </resources>

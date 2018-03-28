@@ -7,7 +7,7 @@ import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class ZoomLinearLayout extends LinearLayout implements ScaleGestureDetector.OnScaleGestureListener {
+public class GameLayout extends LinearLayout implements ScaleGestureDetector.OnScaleGestureListener {
 
     private enum Mode {
         NONE,
@@ -30,17 +30,17 @@ public class ZoomLinearLayout extends LinearLayout implements ScaleGestureDetect
     private float prevDx = 0f;
     private float prevDy = 0f;
 
-    public ZoomLinearLayout(Context context) {
+    public GameLayout(Context context) {
         super(context);
         init(context);
     }
 
-    public ZoomLinearLayout(Context context, AttributeSet attrs) {
+    public GameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public ZoomLinearLayout(Context context, AttributeSet attrs, int defStyle) {
+    public GameLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context);
     }
