@@ -144,7 +144,7 @@ public class DragDrop {
             }
         }
 
-        //Log.d("", "tempX " + tempX + " tempY " + tempY + " whichStack " + whichStack);
+//        Log.d("", "tempX " + tempX + " tempY " + tempY + " whichStack " + whichStack);
         boolean validStack = canStack(whichStack, card.getCurrentStackID());   // Check if the stack can be stacked.
 
         // Location where the card's ImageView should be set to
@@ -399,7 +399,7 @@ public class DragDrop {
             // to the left are empty. Checks for every stack to the left. These do
             // not need to check if have cards. Can be stacked regardless
         } else if (whichStack < 20) {
-            for (int i = 1; i <= whichStack / 4; i++) {
+            for (int i = 1; i <= 4; i++) {
                 if (stacks[(whichStack - 4 * i)].getCurrentCards().size() != 0) {
                     return false;
                 }
@@ -414,7 +414,7 @@ public class DragDrop {
             // to the right are empty. Checks for every stack to the right. These do
             // not need to check if have cards. Can be stacked regardless
         } else if (whichStack < 28) {
-            for (int i = 1; i <= whichStack / 4; i++) {
+            for (int i = 1; i <= 4; i++) {
                 if (stacks[(whichStack + 4 * i)].getCurrentCards().size() != 0) {
                     return false;
                 }
