@@ -126,8 +126,8 @@ public class DragDrop {
         ImageView cardImage = card.getImageView();
         int cardID = card.getCurrentStackID();
         // Get spacing between stacks to offset the card if a stack has > 1 card.
-        float xSpaceStack = Math.abs(stacks[0].getLeftSideLocation() + stacks[0].getWidth() - stacks[4].getLeftSideLocation());
-        float ySpaceStack = Math.abs(stacks[0].getTopSideLocation() + stacks[0].getHeight() - stacks[1].getTopSideLocation());
+        float xSpaceStack = Math.abs(stacks[0].getLeftSideLocation() - stacks[4].getLeftSideLocation())*0.18f;
+        float ySpaceStack = Math.abs(stacks[0].getTopSideLocation() - stacks[1].getTopSideLocation())*0.13f;
         int whichStack = -1;
         float tempX = 0;    // Variable for stack left side location
         float tempY = 0;    // Variable for stack top side location
