@@ -162,6 +162,12 @@ public class DragDrop {
                 previousStack = card.getCurrentStackID();
                 previousCanMove = card.getCanMove();
 
+                // Set the bottom card in original stack to be movable if it is the only card left
+                // TODO make this a method later
+                if ((previousStack < 20 || previousStack > 24) && stacks[previousStack].getCurrentCards().size()==1){
+                    stacks[previousStack].getFirstCard().setCanMove(true);
+                }
+
                 // Add the card to the cellar
                 stacks[whichStack].addCardToStack(card);
 
@@ -194,6 +200,12 @@ public class DragDrop {
                 previousStack = card.getCurrentStackID();
                 previousCanMove = card.getCanMove();
 
+                // Set the bottom card in original stack to be movable if it is the only card left
+                // TODO make this a method later
+                if ((previousStack < 20 || previousStack > 24) && stacks[previousStack].getCurrentCards().size()==1){
+                    stacks[previousStack].getFirstCard().setCanMove(true);
+                }
+
                 // Add the card to the stack
                 stacks[whichStack].addCardToStack(card);
 
@@ -219,12 +231,22 @@ public class DragDrop {
                 // Compare whether the two cards can be stacked
                 if (compareCards(stackCard, card)) {
 //                    Log.d("", "Two cards can be stacked");
+
+
                     // Undo button variables assignment
                     previousCard = card;
                     previousX = card.getXPosition();
                     previousY = card.getYPosition();
                     previousStack = card.getCurrentStackID();
                     previousCanMove = card.getCanMove();
+
+                    // Make sure the bottom stacked card cannot be moved
+                    stacks[whichStack].getFirstCard().setCanMove(false);
+                    // Set the bottom card in original stack to be movable if it is the only card left
+                    // TODO make this a method later
+                    if ((previousStack < 20 || previousStack > 24) && stacks[previousStack].getCurrentCards().size()==1){
+                        stacks[previousStack].getFirstCard().setCanMove(true);
+                    }
 
                     // If the stack has no cards, assign the location to be set for the card to simply the stack
                     if (stacks[whichStack].getCurrentCards().size() == 0) {
@@ -316,7 +338,9 @@ public class DragDrop {
      * @return True if the function is called successfully.
      */
     public boolean myTouch(View v, MotionEvent e, Card c) {
-        v.bringToFront();
+        if (c.getCanMove()) {
+            v.bringToFront();
+        }
         x = e.getRawX();
         y = e.getRawY();
         switch (e.getAction()) {
@@ -459,6 +483,7 @@ public class DragDrop {
             }
         }
     }
+
 
     /**
      * Unlock the cards that should be unlocked by the move.
