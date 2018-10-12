@@ -4,6 +4,7 @@ package com.example.judyy.grandnapoleonsolitairegame;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -144,7 +145,7 @@ public class DragDrop {
             }
         }
 
-//        Log.d("", "tempX " + tempX + " tempY " + tempY + " whichStack " + whichStack);
+        Log.d("stackBeingDropped", "tempX " + tempX + " tempY " + tempY + " whichStack " + whichStack);
         boolean validStack = canStack(whichStack, card.getCurrentStackID());   // Check if the stack can be stacked.
 
         // Location where the card's ImageView should be set to
@@ -220,17 +221,17 @@ public class DragDrop {
                 // Overwrite the card's position to the new position
                 card.setXYPositions(xToSet, yToSet);
 
-                while(stacks[previousStack].getCurrentCards().size() != 0 ){
-                    card = stacks[previousStack].getLastCard();
-                    card.getImageView().bringToFront();
-                    stacks[previousStack].removeCardFromStack(card);
+//                while(stacks[previousStack].getCurrentCards().size() != 0 ){
+//                    card = stacks[previousStack].getLastCard();
+//                    card.getImageView().bringToFront();
+//                    stacks[previousStack].removeCardFromStack(card);
 //                    stacks[whichStack].addCardToStack(card);
 //                    cardImage = card.getImageView();
 //                    cardImage.setX(xToSet);
 //                    cardImage.setY(yToSet);
 //                    card.setXYPositions(xToSet, yToSet);
-                    actionUp(card, x, y);
-                }
+//                    actionUp(card, x, y);
+//                }
                 // Unlock the cards that must be unlocked after the move.
                 cardMoveCheck(previousStack);
 
@@ -322,13 +323,13 @@ public class DragDrop {
                         card = stacks[previousStack].getLastCard();
                         card.getImageView().bringToFront();
                         stacks[previousStack].removeCardFromStack(card);
-                        //
+//                        //
                         stacks[whichStack].addCardToStack(card);
                         cardImage = card.getImageView();
                         cardImage.setX(xToSet);
                         cardImage.setY(yToSet);
                         card.setXYPositions(xToSet, yToSet);
-//                        actionUp(card, x, y);
+//                        actionUp(card, xToSet, xToSet);
                     }
                     // Unlock the cards that must be unlocked after the move
                     cardMoveCheck(previousStack);
@@ -610,7 +611,7 @@ public class DragDrop {
 
     public boolean myDoubleTap(Card c){
         if (c.getCanMove()) {
-//            c.getImageView().bringToFront();
+            c.getImageView().bringToFront();
             for (int i =0; i < 4; i++) {
                 int whichStack =  20 + i;
                 if(stacks[whichStack].getLastCard().getSuit() == c.getSuit()) {
@@ -638,9 +639,20 @@ public class DragDrop {
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
                         Log.d("TEST", "onDoubleTap");
-                        return myDoubleTap(cards[finalI]);
+
+//                        return myDoubleTap(cards[finalI]);
+
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                myDoubleTap(cards[finalI]);
+                            }
+                        }, 100);
+                        return true;
                     }
                 });
+
                 // Drag and Drop
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
