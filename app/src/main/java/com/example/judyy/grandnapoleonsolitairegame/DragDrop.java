@@ -220,7 +220,17 @@ public class DragDrop {
                 // Overwrite the card's position to the new position
                 card.setXYPositions(xToSet, yToSet);
 
-
+                while(stacks[previousStack].getCurrentCards().size() != 0 ){
+                    card = stacks[previousStack].getLastCard();
+                    card.getImageView().bringToFront();
+                    stacks[previousStack].removeCardFromStack(card);
+//                    stacks[whichStack].addCardToStack(card);
+//                    cardImage = card.getImageView();
+//                    cardImage.setX(xToSet);
+//                    cardImage.setY(yToSet);
+//                    card.setXYPositions(xToSet, yToSet);
+                    actionUp(card, x, y);
+                }
                 // Unlock the cards that must be unlocked after the move.
                 cardMoveCheck(previousStack);
 
@@ -308,6 +318,18 @@ public class DragDrop {
                     card.setXYPositions(xToSet, yToSet);
 
 
+                    while(stacks[previousStack].getCurrentCards().size() != 0){
+                        card = stacks[previousStack].getLastCard();
+                        card.getImageView().bringToFront();
+                        stacks[previousStack].removeCardFromStack(card);
+                        //
+                        stacks[whichStack].addCardToStack(card);
+                        cardImage = card.getImageView();
+                        cardImage.setX(xToSet);
+                        cardImage.setY(yToSet);
+                        card.setXYPositions(xToSet, yToSet);
+//                        actionUp(card, x, y);
+                    }
                     // Unlock the cards that must be unlocked after the move
                     cardMoveCheck(previousStack);
                     // Not valid, add card back to where it was
@@ -588,9 +610,13 @@ public class DragDrop {
 
     public boolean myDoubleTap(Card c){
         if (c.getCanMove()) {
+//            c.getImageView().bringToFront();
             for (int i =0; i < 4; i++) {
                 int whichStack =  20 + i;
-                actionUp(c, stacks[whichStack].getLeftSideLocation(), stacks[whichStack].getTopSideLocation());
+                if(stacks[whichStack].getLastCard().getSuit() == c.getSuit()) {
+                    stacks[c.getCurrentStackID()].removeCardFromStack(c);
+                    actionUp(c, stacks[whichStack].getLeftSideLocation(), stacks[whichStack].getTopSideLocation());
+                }
             }
         }
         return true;
@@ -604,656 +630,29 @@ public class DragDrop {
      * @parem none
      */
     private void enableTouch() {
-        // TODO: Only let outside cards move. All cards can be moved right now.
-        cards[0].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+        for (int i = 0; i < 52; i ++) {
+            final int finalI = i;
+            cards[finalI].getImageView().setOnTouchListener(new View.OnTouchListener() {
+                // Double Tap Control Feature
+                private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+                    @Override
+                    public boolean onDoubleTap(MotionEvent e) {
+                        Log.d("TEST", "onDoubleTap");
+                        return myDoubleTap(cards[finalI]);
+                    }
+                });
+                // Drag and Drop
                 @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[0]);
+                public boolean onTouch(View v, MotionEvent event) {
+                    gestureDetector.onTouchEvent(event);
+                    return myTouch(v, event, cards[finalI]);
                 }
             });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[0]);
+        }
+        View.OnClickListener hintButton = new View.OnClickListener() {
+            public void onClick(View v) {
+                cards[0].getImageView().setColorFilter(Color.argb(50, 0, 0, 0));
             }
-        });
-        cards[1].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[1]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[1]);
-            }
-        });
-        cards[2].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[2]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[2]);
-            }
-        });
-        cards[3].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[3]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[3]);
-            }
-        });
-        cards[4].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[4]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[4]);
-            }
-        });
-        cards[5].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[5]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[5]);
-            }
-        });
-        cards[6].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[6]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[6]);
-            }
-        });
-        cards[7].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[7]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[7]);
-            }
-        });
-        cards[8].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[8]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[8]);
-            }
-        });
-        cards[9].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[9]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[9]);
-            }
-        });
-        cards[10].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[10]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[10]);
-            }
-        });
-        cards[11].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[11]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[11]);
-            }
-        });
-        cards[12].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[12]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[12]);
-            }
-        });
-        cards[13].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[13]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[13]);
-            }
-        });
-        cards[14].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[14]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[14]);
-            }
-        });
-        cards[15].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[15]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[15]);
-            }
-        });
-        cards[16].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[16]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[16]);
-            }
-        });
-        cards[17].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[17]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[17]);
-            }
-        });
-        cards[18].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[18]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[18]);
-            }
-        });
-        cards[19].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[19]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[19]);
-            }
-        });
-        cards[24].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[24]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[24]);
-            }
-        });
-        cards[25].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[25]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[25]);
-            }
-        });
-        cards[26].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[26]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[26]);
-            }
-        });
-        cards[27].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[27]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[27]);
-            }
-        });
-        cards[28].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[28]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[28]);
-            }
-        });
-        cards[29].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[29]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[29]);
-            }
-        });
-        cards[30].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[30]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[30]);
-            }
-        });
-        cards[31].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[31]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[31]);
-            }
-        });
-        cards[32].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[32]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[32]);
-            }
-        });
-        cards[33].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[33]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[33]);
-            }
-        });
-        cards[34].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[34]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[34]);
-            }
-        });
-        cards[35].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[35]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[35]);
-            }
-        });
-        cards[36].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[36]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[36]);
-            }
-        });
-        cards[37].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[37]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[37]);
-            }
-        });
-        cards[38].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[38]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[38]);
-            }
-        });
-        cards[39].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[39]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[39]);
-            }
-        });
-        cards[40].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[40]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[40]);
-            }
-        });
-        cards[41].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[41]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[41]);
-            }
-        });
-        cards[42].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[42]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[42]);
-            }
-        });
-        cards[43].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d("TEST", "onDoubleTap");
-                    return myDoubleTap(cards[43]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[43]);
-            }
-        });
-        cards[44].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[44]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[44]);
-            }
-        });
-        cards[45].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[45]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[45]);
-            }
-        });
-        cards[46].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[46]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[46]);
-            }
-        });
-        cards[47].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[47]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[47]);
-            }
-        });
-        cards[48].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[48]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[48]);
-            }
-        });
-        cards[49].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[49]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[49]);
-            }
-        });
-        cards[50].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[50]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[50]);
-            }
-        });
-        cards[51].getImageView().setOnTouchListener(new View.OnTouchListener() {
-            private GestureDetector gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    return myDoubleTap(cards[51]);
-                }
-            });
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                gestureDetector.onTouchEvent(event);
-                return myTouch(v, event, cards[51]);
-            }
-        });
+        };
     }
 }
