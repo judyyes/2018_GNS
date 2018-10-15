@@ -221,17 +221,17 @@ public class DragDrop {
                 // Overwrite the card's position to the new position
                 card.setXYPositions(xToSet, yToSet);
 
-//                while(stacks[previousStack].getCurrentCards().size() != 0 ){
-//                    card = stacks[previousStack].getLastCard();
-//                    card.getImageView().bringToFront();
-//                    stacks[previousStack].removeCardFromStack(card);
+                while(stacks[previousStack].getCurrentCards().size() != 0 ){
+                    card = stacks[previousStack].getLastCard();
+                    card.getImageView().bringToFront();
+                    stacks[previousStack].removeCardFromStack(card);
 //                    stacks[whichStack].addCardToStack(card);
 //                    cardImage = card.getImageView();
 //                    cardImage.setX(xToSet);
 //                    cardImage.setY(yToSet);
 //                    card.setXYPositions(xToSet, yToSet);
-//                    actionUp(card, x, y);
-//                }
+                    actionUp(card, x, y);
+                }
                 // Unlock the cards that must be unlocked after the move.
                 cardMoveCheck(previousStack);
 
@@ -324,12 +324,12 @@ public class DragDrop {
                         card.getImageView().bringToFront();
                         stacks[previousStack].removeCardFromStack(card);
 //                        //
-                        stacks[whichStack].addCardToStack(card);
-                        cardImage = card.getImageView();
-                        cardImage.setX(xToSet);
-                        cardImage.setY(yToSet);
-                        card.setXYPositions(xToSet, yToSet);
-//                        actionUp(card, xToSet, xToSet);
+//                        stacks[whichStack].addCardToStack(card);
+//                        cardImage = card.getImageView();
+//                        cardImage.setX(xToSet);
+//                        cardImage.setY(yToSet);
+//                        card.setXYPositions(xToSet, yToSet);
+                        actionUp(card, x, y);
                     }
                     // Unlock the cards that must be unlocked after the move
                     cardMoveCheck(previousStack);
@@ -640,15 +640,13 @@ public class DragDrop {
                     public boolean onDoubleTap(MotionEvent e) {
                         Log.d("TEST", "onDoubleTap");
 
-//                        return myDoubleTap(cards[finalI]);
-
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 myDoubleTap(cards[finalI]);
                             }
-                        }, 100);
+                        }, 33);
                         return true;
                     }
                 });
