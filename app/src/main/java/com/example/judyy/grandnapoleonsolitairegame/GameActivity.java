@@ -301,7 +301,7 @@ public class GameActivity extends AppCompatActivity {
     // Set stack location
     private void setStacksLocation() {
         for (int i = 0; i < stacks.length; i++) {
-            System.out.print("This is good'"+i+"\n");
+//            System.out.print("This is good'"+i+"\n");
             stacks[i].getImageView().getLocationOnScreen(location);
             stacks[i].setSize(stacks[i].getImageView().getWidth(), stacks[i].getImageView().getHeight());
             stacks[i].setXYCoordinates(location[0], location[1]);
