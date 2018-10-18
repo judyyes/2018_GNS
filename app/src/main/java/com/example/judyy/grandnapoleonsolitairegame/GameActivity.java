@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,16 +44,14 @@ public class GameActivity extends AppCompatActivity {
         //Display card to table
         displayCards(type, cards, stacks);
 
-//        final GameLayout gameLayout = (GameLayout) findViewById(R.id.zoom_linear_layout);
-
-//        gameLayout.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                gameLayout.init(GameActivity.this);
-//                return false;
-//            }
-//        });
-
+        final GameLayout gameLayout = (GameLayout) findViewById(R.id.zoom_linear_layout);
+        final ImageButton zoomToggle = (ImageButton) findViewById(R.id.zoom_toggle);
+        zoomToggle.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+                return gameLayout.toggleZooming();
+            }
+        });
 
     }
 

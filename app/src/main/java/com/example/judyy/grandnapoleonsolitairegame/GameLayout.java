@@ -30,6 +30,9 @@ public class GameLayout extends LinearLayout implements ScaleGestureDetector.OnS
     private float prevDx = 0f;
     private float prevDy = 0f;
 
+    private boolean zoomingMode = false;
+    private OnTouchListener zoomListener;
+
     public GameLayout(Context context) {
         super(context);
         init(context);
@@ -47,7 +50,7 @@ public class GameLayout extends LinearLayout implements ScaleGestureDetector.OnS
 
     public void init(Context context) {
         final ScaleGestureDetector scaleDetector = new ScaleGestureDetector(context, this);
-        this.setOnTouchListener(new OnTouchListener() {
+        this.zoomListener = new OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
@@ -86,10 +89,9 @@ public class GameLayout extends LinearLayout implements ScaleGestureDetector.OnS
                     dy = Math.min(Math.max(dy, -maxDy), maxDy);
                     applyScaleAndTranslation();
                 }
-
                 return true;
             }
-        });
+        };
     }
 
     @Override
@@ -125,4 +127,20 @@ public class GameLayout extends LinearLayout implements ScaleGestureDetector.OnS
         return getChildAt(0);
     }
 
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev){
+        return this.zoomingMode;
+    }
+
+    public boolean toggleZooming(){
+        if (this.zoomingMode){
+            this.zoomingMode = false;
+            this.setOnTouchListener(null);
+
+        } else {
+            this.zoomingMode = true;
+            this.setOnTouchListener(this.zoomListener);
+        }
+        return true;
+    }
 }
