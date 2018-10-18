@@ -221,7 +221,7 @@ public class DragDrop {
                 // Overwrite the card's position to the new position
                 card.setXYPositions(xToSet, yToSet);
 
-                while(stacks[previousStack].getCurrentCards().size() != 0 ){
+                while(stacks[previousStack].getCurrentCards().size() != 0  && (previousStack >23 || previousStack < 20)){
                     card = stacks[previousStack].getLastCard();
                     card.getImageView().bringToFront();
                     stacks[previousStack].removeCardFromStack(card);
@@ -319,7 +319,7 @@ public class DragDrop {
                     card.setXYPositions(xToSet, yToSet);
 
 
-                    while(stacks[previousStack].getCurrentCards().size() != 0){
+                    while(stacks[previousStack].getCurrentCards().size() != 0 && (previousStack >23 || previousStack < 20)){
                         card = stacks[previousStack].getLastCard();
                         card.getImageView().bringToFront();
                         stacks[previousStack].removeCardFromStack(card);
@@ -646,7 +646,7 @@ public class DragDrop {
                             public void run() {
                                 myDoubleTap(cards[finalI]);
                             }
-                        }, 33);
+                        }, 100);
                         return true;
                     }
                 });
