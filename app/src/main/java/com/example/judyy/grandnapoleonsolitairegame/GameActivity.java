@@ -1,6 +1,7 @@
 package com.example.judyy.grandnapoleonsolitairegame;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -43,12 +44,19 @@ public class GameActivity extends AppCompatActivity {
         //Display card to table
         displayCards(type, cards, stacks);
 
-        final GameLayout gameLayout = (GameLayout) findViewById(R.id.zoom_linear_layout);
-        final View zoomToggle = findViewById(R.id.zoom_toggle);
+        final GameLayout gameLayout = findViewById(R.id.zoom_linear_layout);
+        final ImageView zoomToggle = findViewById(R.id.zoom_toggle);
+        zoomToggle.setImageResource(R.drawable.zoom_btn);
         zoomToggle.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                gameLayout.toggleZooming();
+                boolean zooming = gameLayout.toggleZooming();
+                if (zooming){
+                    // Sort of Blue color filter
+                    zoomToggle.setColorFilter(Color.argb(123, 0, 255, 162));
+                } else {
+                    zoomToggle.clearColorFilter();
+                }
             }
         });
 

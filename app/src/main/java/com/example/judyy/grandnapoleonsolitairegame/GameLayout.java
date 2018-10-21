@@ -144,6 +144,6 @@ public class GameLayout extends LinearLayout implements ScaleGestureDetector.OnS
             this.zoomingMode = true;
             this.setOnTouchListener(this.zoomListener);
         }
-        return true;
+        return this.zoomingMode;
     }
 }
