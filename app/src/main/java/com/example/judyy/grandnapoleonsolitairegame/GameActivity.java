@@ -9,7 +9,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,11 +44,11 @@ public class GameActivity extends AppCompatActivity {
         displayCards(type, cards, stacks);
 
         final GameLayout gameLayout = (GameLayout) findViewById(R.id.zoom_linear_layout);
-        final ImageButton zoomToggle = (ImageButton) findViewById(R.id.zoom_toggle);
-        zoomToggle.setOnTouchListener(new View.OnTouchListener(){
+        final View zoomToggle = findViewById(R.id.zoom_toggle);
+        zoomToggle.setOnClickListener(new View.OnClickListener(){
             @Override
-            public boolean onTouch(View v, MotionEvent event){
-                return gameLayout.toggleZooming();
+            public void onClick(View v){
+                gameLayout.toggleZooming();
             }
         });
 
