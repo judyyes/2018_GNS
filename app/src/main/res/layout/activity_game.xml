@@ -1,1101 +1,1119 @@
-<com.example.judyy.grandnapoleonsolitairegame.GameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/zoom_linear_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/napoleon3"
     tools:context="com.example.judyy.grandnapoleonsolitairegame.GameActivity">
 
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <com.example.judyy.grandnapoleonsolitairegame.GameLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/game_layout"
+        android:id="@+id/zoom_linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/greenBackground">
-
-        <!-- Column 1 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.15"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.15"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.15"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.15"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 2 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.22"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.22"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.22"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.22"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack44"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.22"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 3 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.29"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.29"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.29"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.29"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack45"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.29"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 4 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.36"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.36"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.36"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.36"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack46"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.36"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 5 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.43"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.43"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.43"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.43"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack47"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.43"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 6 (center) -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="0.05"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="0.25"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="0.45"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="0.65"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack48"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 7 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.57"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.57"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack26"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.57"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack27"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.57"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack49"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.57"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 8 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.64"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack29"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.64"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.64"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.64"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.64"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 9 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.71"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack33"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.71"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.71"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.71"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack51"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.71"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 10 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack36"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.78"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack37"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.78"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack38"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.78"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack39"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.78"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack52"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.78"
-            app:layout_constraintVertical_bias="0.9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <!-- Column 11 -->
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack40"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintVertical_bias="0.1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack41"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintVertical_bias="0.3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack42"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintVertical_bias="0.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/stack43"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintVertical_bias="0.7"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background_stack"
-            />
-
-
-        <!-- CARDS -->
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card0"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@+id/stack0"
-            app:layout_constraintLeft_toLeftOf="@id/stack0"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack1"
-            app:layout_constraintLeft_toLeftOf="@id/stack1"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack2"
-            app:layout_constraintLeft_toLeftOf="@id/stack2"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack3"
-            app:layout_constraintLeft_toLeftOf="@id/stack3"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack4"
-            app:layout_constraintLeft_toLeftOf="@id/stack4"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack5"
-            app:layout_constraintLeft_toLeftOf="@id/stack5"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack6"
-            app:layout_constraintLeft_toLeftOf="@id/stack6"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card7"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack7"
-            app:layout_constraintLeft_toLeftOf="@id/stack7"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card8"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack8"
-            app:layout_constraintLeft_toLeftOf="@id/stack8"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack9"
-            app:layout_constraintLeft_toLeftOf="@id/stack9"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card10"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack10"
-            app:layout_constraintLeft_toLeftOf="@id/stack10"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card11"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack11"
-            app:layout_constraintLeft_toLeftOf="@id/stack11"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card12"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack12"
-            app:layout_constraintLeft_toLeftOf="@id/stack12"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card13"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack13"
-            app:layout_constraintLeft_toLeftOf="@id/stack13"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card14"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack14"
-            app:layout_constraintLeft_toLeftOf="@id/stack14"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card15"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack15"
-            app:layout_constraintLeft_toLeftOf="@id/stack15"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card16"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack16"
-            app:layout_constraintLeft_toLeftOf="@id/stack16"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card17"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack17"
-            app:layout_constraintLeft_toLeftOf="@id/stack17"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card18"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack18"
-            app:layout_constraintLeft_toLeftOf="@id/stack18"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card19"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack19"
-            app:layout_constraintLeft_toLeftOf="@id/stack19"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card20"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack20"
-            app:layout_constraintLeft_toLeftOf="@id/stack20"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card21"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack21"
-            app:layout_constraintLeft_toLeftOf="@id/stack21"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card22"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack22"
-            app:layout_constraintLeft_toLeftOf="@id/stack22"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card23"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack23"
-            app:layout_constraintLeft_toLeftOf="@id/stack23"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card24"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack24"
-            app:layout_constraintLeft_toLeftOf="@id/stack24"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card25"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack25"
-            app:layout_constraintLeft_toLeftOf="@id/stack25"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card26"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack26"
-            app:layout_constraintLeft_toLeftOf="@id/stack26"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card27"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack27"
-            app:layout_constraintLeft_toLeftOf="@id/stack27"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card28"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack28"
-            app:layout_constraintLeft_toLeftOf="@id/stack28"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card29"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack29"
-            app:layout_constraintLeft_toLeftOf="@id/stack29"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card30"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack30"
-            app:layout_constraintLeft_toLeftOf="@id/stack30"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card31"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack31"
-            app:layout_constraintLeft_toLeftOf="@id/stack31"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card32"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack32"
-            app:layout_constraintLeft_toLeftOf="@id/stack32"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card33"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack33"
-            app:layout_constraintLeft_toLeftOf="@id/stack33"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card34"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack34"
-            app:layout_constraintLeft_toLeftOf="@id/stack34"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card35"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack35"
-            app:layout_constraintLeft_toLeftOf="@id/stack35"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card36"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack36"
-            app:layout_constraintLeft_toLeftOf="@id/stack36"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card37"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack37"
-            app:layout_constraintLeft_toLeftOf="@id/stack37"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card38"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack38"
-            app:layout_constraintLeft_toLeftOf="@id/stack38"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card39"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack39"
-            app:layout_constraintLeft_toLeftOf="@id/stack39"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card40"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/stack40"
-            app:layout_constraintLeft_toLeftOf="@id/stack40"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card41"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack41"
-            app:layout_constraintLeft_toLeftOf="@id/stack41"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card42"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack42"
-            app:layout_constraintLeft_toLeftOf="@id/stack42"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card43"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack43"
-            app:layout_constraintLeft_toLeftOf="@id/stack43"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card44"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack44"
-            app:layout_constraintLeft_toLeftOf="@id/stack44"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card45"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack45"
-            app:layout_constraintLeft_toLeftOf="@id/stack45"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card46"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack46"
-            app:layout_constraintLeft_toLeftOf="@id/stack46"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card47"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack47"
-            app:layout_constraintLeft_toLeftOf="@id/stack47"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card48"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack49"
-            app:layout_constraintLeft_toLeftOf="@id/stack49"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card49"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack50"
-            app:layout_constraintLeft_toLeftOf="@id/stack50"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card50"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack51"
-            app:layout_constraintLeft_toLeftOf="@id/stack51"/>
-
-        <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
-            android:id="@+id/card51"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="@id/stack52"
-            app:layout_constraintLeft_toLeftOf="@id/stack52"/>
-
-    </android.support.constraint.ConstraintLayout>
-
-
-
-</com.example.judyy.grandnapoleonsolitairegame.GameLayout>
-
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/game_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/greenBackground">
+
+            <!-- Column 1 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 2 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 3 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.29"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 4 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack46"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 5 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack47"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.43"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 6 (center) -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="0.05"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="0.25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="0.45"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="0.65"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 7 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 8 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 9 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.71"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 10 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.78"
+                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <!-- Column 11 -->
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintVertical_bias="0.1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/stack43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintVertical_bias="0.7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/background_stack"
+                />
+
+
+            <!-- CARDS -->
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card0"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@+id/stack0"
+                app:layout_constraintLeft_toLeftOf="@id/stack0"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack1"
+                app:layout_constraintLeft_toLeftOf="@id/stack1"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack2"
+                app:layout_constraintLeft_toLeftOf="@id/stack2"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack3"
+                app:layout_constraintLeft_toLeftOf="@id/stack3"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack4"
+                app:layout_constraintLeft_toLeftOf="@id/stack4"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack5"
+                app:layout_constraintLeft_toLeftOf="@id/stack5"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack6"
+                app:layout_constraintLeft_toLeftOf="@id/stack6"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack7"
+                app:layout_constraintLeft_toLeftOf="@id/stack7"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack8"
+                app:layout_constraintLeft_toLeftOf="@id/stack8"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack9"
+                app:layout_constraintLeft_toLeftOf="@id/stack9"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card10"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack10"
+                app:layout_constraintLeft_toLeftOf="@id/stack10"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card11"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack11"
+                app:layout_constraintLeft_toLeftOf="@id/stack11"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card12"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack12"
+                app:layout_constraintLeft_toLeftOf="@id/stack12"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card13"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack13"
+                app:layout_constraintLeft_toLeftOf="@id/stack13"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card14"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack14"
+                app:layout_constraintLeft_toLeftOf="@id/stack14"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card15"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack15"
+                app:layout_constraintLeft_toLeftOf="@id/stack15"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card16"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack16"
+                app:layout_constraintLeft_toLeftOf="@id/stack16"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card17"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack17"
+                app:layout_constraintLeft_toLeftOf="@id/stack17"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card18"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack18"
+                app:layout_constraintLeft_toLeftOf="@id/stack18"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card19"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack19"
+                app:layout_constraintLeft_toLeftOf="@id/stack19"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card20"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack20"
+                app:layout_constraintLeft_toLeftOf="@id/stack20"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card21"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack21"
+                app:layout_constraintLeft_toLeftOf="@id/stack21"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card22"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack22"
+                app:layout_constraintLeft_toLeftOf="@id/stack22"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card23"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack23"
+                app:layout_constraintLeft_toLeftOf="@id/stack23"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card24"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack24"
+                app:layout_constraintLeft_toLeftOf="@id/stack24"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card25"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack25"
+                app:layout_constraintLeft_toLeftOf="@id/stack25"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card26"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack26"
+                app:layout_constraintLeft_toLeftOf="@id/stack26"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card27"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack27"
+                app:layout_constraintLeft_toLeftOf="@id/stack27"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card28"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack28"
+                app:layout_constraintLeft_toLeftOf="@id/stack28"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card29"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack29"
+                app:layout_constraintLeft_toLeftOf="@id/stack29"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card30"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack30"
+                app:layout_constraintLeft_toLeftOf="@id/stack30"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card31"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack31"
+                app:layout_constraintLeft_toLeftOf="@id/stack31"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card32"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack32"
+                app:layout_constraintLeft_toLeftOf="@id/stack32"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card33"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack33"
+                app:layout_constraintLeft_toLeftOf="@id/stack33"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card34"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack34"
+                app:layout_constraintLeft_toLeftOf="@id/stack34"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card35"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack35"
+                app:layout_constraintLeft_toLeftOf="@id/stack35"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card36"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack36"
+                app:layout_constraintLeft_toLeftOf="@id/stack36"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card37"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack37"
+                app:layout_constraintLeft_toLeftOf="@id/stack37"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card38"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack38"
+                app:layout_constraintLeft_toLeftOf="@id/stack38"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card39"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack39"
+                app:layout_constraintLeft_toLeftOf="@id/stack39"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/stack40"
+                app:layout_constraintLeft_toLeftOf="@id/stack40"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card41"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack41"
+                app:layout_constraintLeft_toLeftOf="@id/stack41"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card42"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack42"
+                app:layout_constraintLeft_toLeftOf="@id/stack42"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card43"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack43"
+                app:layout_constraintLeft_toLeftOf="@id/stack43"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card44"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack44"
+                app:layout_constraintLeft_toLeftOf="@id/stack44"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card45"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack45"
+                app:layout_constraintLeft_toLeftOf="@id/stack45"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card46"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack46"
+                app:layout_constraintLeft_toLeftOf="@id/stack46"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card47"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack47"
+                app:layout_constraintLeft_toLeftOf="@id/stack47"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card48"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack49"
+                app:layout_constraintLeft_toLeftOf="@id/stack49"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card49"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack50"
+                app:layout_constraintLeft_toLeftOf="@id/stack50"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card50"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack51"
+                app:layout_constraintLeft_toLeftOf="@id/stack51"/>
+
+            <com.example.judyy.grandnapoleonsolitairegame.ScalableImageView
+                android:id="@+id/card51"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/stack52"
+                app:layout_constraintLeft_toLeftOf="@id/stack52"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </com.example.judyy.grandnapoleonsolitairegame.GameLayout>
+
+    <ImageView
+        android:id="@+id/zoom_toggle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintVertical_bias="0.99"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>
 
