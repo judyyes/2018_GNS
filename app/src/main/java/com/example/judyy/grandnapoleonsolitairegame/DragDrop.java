@@ -165,7 +165,7 @@ public class DragDrop {
 
                 // Set the bottom card in original stack to be movable if it is the only card left
                 // TODO make this a method later
-                if ((previousStack < 20 || previousStack > 24) && stacks[previousStack].getCurrentCards().size()==1){
+                if ((previousStack < 20 || previousStack > 23) && stacks[previousStack].getCurrentCards().size()==1){
                     stacks[previousStack].getFirstCard().setCanMove(true);
                 }
 
@@ -203,7 +203,7 @@ public class DragDrop {
 
                 // Set the bottom card in original stack to be movable if it is the only card left
                 // TODO make this a method later
-                if ((previousStack < 20 || previousStack > 24) && stacks[previousStack].getCurrentCards().size()==1){
+                if ((previousStack < 20 || previousStack > 23) && stacks[previousStack].getCurrentCards().size()==1){
                     stacks[previousStack].getFirstCard().setCanMove(true);
                 }
 
@@ -255,7 +255,7 @@ public class DragDrop {
                     stacks[whichStack].getFirstCard().setCanMove(false);
                     // Set the bottom card in original stack to be movable if it is the only card left
                     // TODO make this a method later
-                    if ((previousStack < 20 || previousStack > 24) && stacks[previousStack].getCurrentCards().size()==1){
+                    if ((previousStack < 20 || previousStack > 23) && stacks[previousStack].getCurrentCards().size()==1){
                         stacks[previousStack].getFirstCard().setCanMove(true);
                     }
 
