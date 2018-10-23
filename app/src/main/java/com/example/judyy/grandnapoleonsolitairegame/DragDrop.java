@@ -28,7 +28,7 @@ public class DragDrop {
     private static float dx, dy, x, y, initialX, initialY;
     private static float stackHeight;
     private static float stackWidth;
-    private static boolean baseStackOrder = false;
+    private static int direction = 0;
 
     // Input from GameActivity
     private static Card[] cards;
@@ -65,18 +65,13 @@ public class DragDrop {
         stacks = s;
         numSteps = 0;   // Reset numSteps to 0
         // Get size of stack ImageView
+        direction = 0;
         stackHeight = stacks[0].getHeight();    // Set stack height
         stackWidth = stacks[0].getWidth();      // Set stack width
-        baseStackOrder = false;
         this.c = context;
 
         // Enable touch for cards
         enableTouch();
-
-        // Set stacking order of all stacks to both order (ascending + descending)
-        for (int i = 0; i < s.length; i++) {
-            s[i].setStackingOrder(1);
-        }
     }
 
     /**
@@ -237,10 +232,10 @@ public class DragDrop {
 
                 // Any other case
             } else {
-                Card stackCard = stacks[whichStack].getLastCard();  // Get the card to be stacked on top of by the card dropped by user
+                Stack cardStack = stacks[whichStack];
 //                Log.d("", "Stack is valid");
                 // Compare whether the two cards can be stacked
-                if (compareCards(stackCard, card)) {
+                if (compareCards(cardStack, card)) {
 //                    Log.d("", "Two cards can be stacked");
 
 
@@ -270,38 +265,8 @@ public class DragDrop {
                             yToSet = stacks[whichStack].getTopSideLocation();
                             // In the base stacks, set offset to below
                         } else if (whichStack < 24) {
-                            int difference = stackCard.getNumber() - card.getNumber();  // Calculate the number difference between the two cards
-                            // Set the stacking order of all base if it has NOT been set yet
-                            if (!baseStackOrder) {
-                                // -12 or 1 means descending
-                                if (difference == -12 || difference == 1) {
-                                    stacks[20].setStackingOrder(0);
-                                    stacks[21].setStackingOrder(0);
-                                    stacks[22].setStackingOrder(0);
-                                    stacks[23].setStackingOrder(0);
-                                    // 12 or -1 means ascending
-                                } else if (difference == 12 || difference == -1) {
-                                    stacks[20].setStackingOrder(2);
-                                    stacks[21].setStackingOrder(2);
-                                    stacks[22].setStackingOrder(2);
-                                    stacks[23].setStackingOrder(2);
-                                }
-                                // Stacking order has been set for base
-                                baseStackOrder = true;
-                            }
-                            // Check if stacking order is valid. Set the position to be set.
-                            if ((difference == -12) || (difference == 1) && stacks[whichStack].getStackingOrder() == 0) {
-                                xToSet = stacks[whichStack].getLeftSideLocation();
-                                yToSet = stacks[whichStack].getTopSideLocation() + ySpaceStack;
-                            } else if ((difference == 12) || (difference == -1) && stacks[whichStack].getStackingOrder() == 2) {
-                                xToSet = stacks[whichStack].getLeftSideLocation();
-                                yToSet = stacks[whichStack].getTopSideLocation() + ySpaceStack;
-                            } else {    // Not valid, reset the card's position to where it should go
-                                xToSet = card.getXPosition();
-                                yToSet = card.getYPosition();
-                                whichStack = card.getCurrentStackID();
-                            }
-                            // Right side of the board, set offset to the right
+                            xToSet = stacks[whichStack].getLeftSideLocation();
+                            yToSet = stacks[whichStack].getTopSideLocation() + ySpaceStack;
                         } else if (whichStack < 44) {
                             xToSet = stacks[whichStack].getLeftSideLocation() + xSpaceStack;
                             yToSet = stacks[whichStack].getTopSideLocation();
@@ -555,11 +520,19 @@ public class DragDrop {
     /**
      * Determine whether the two cards can be stacked together. Same suit + ascending or descending order.
      *
-     * @param c1 Card 1
-     * @param c2 Card 2
+     * @param s1 cell to stack on
+     * @param c2 Card to move
      * @return True if can be stacked. False otherwise
      */
-    private static boolean compareCards(Card c1, Card c2) {
+    private static boolean compareCards(Stack s1, Card c2) {
+        Card c1 = s1.getLastCard();
+        if(c1.getCurrentStackID() > 19 && c1.getCurrentStackID() < 24 && s1.getCurrentCards().size() == 1) {
+            if (direction == 0) {
+                direction = (c2.getNumber() - c1.getNumber());
+            } else {
+                return (c2.getNumber() - c1.getNumber()) == direction;
+            }
+        }
         if (c1.getSuit() == c2.getSuit()) {
             if ((Math.abs(c1.getNumber() - c2.getNumber()) == 1) || (Math.abs(c1.getNumber() - c2.getNumber()) == 12)) {
                 return true;

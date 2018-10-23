@@ -75,7 +75,6 @@ public class GameActivity extends AppCompatActivity {
         // Create 53 stacks
         for (int i = 0; i < stacks.length; i++) {
             stacks[i] = new Stack(i);
-            stacks[i].setStackingOrder(1);
         }
         if (type == 1) {
             // Randomly pick a number for base, and fill base with those cards in alternating suit color.
