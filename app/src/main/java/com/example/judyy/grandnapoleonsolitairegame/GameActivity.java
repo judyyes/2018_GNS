@@ -1,6 +1,7 @@
 package com.example.judyy.grandnapoleonsolitairegame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class GameActivity extends AppCompatActivity {
     public Button pauseButton;
     public Button hintButton;
     public TextView stepCounter;
-    public int type = 1; // Set default game type to random
+    public String type = "normal"; // Set default game type to random
     public static int edtStep;
     public static Chronometer edtTime, timer;
     public static Boolean done = false;
@@ -39,6 +40,9 @@ public class GameActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
+
+        Intent intent = getIntent();
+        type = intent.getStringExtra(DifficultySelectionActivity.EXTRA_MESSAGE);
 
         //Display card to table
         displayCards(type, cards, stacks);
@@ -70,12 +74,12 @@ public class GameActivity extends AppCompatActivity {
      * @return None
      * @params card card that will be added to stack
      */
-    public void displayCards(int type, Card[] cards, Stack[] stacks) {
+    public void displayCards(String type, Card[] cards, Stack[] stacks) {
         // Create 53 stacks
         for (int i = 0; i < stacks.length; i++) {
             stacks[i] = new Stack(i);
         }
-        if (type == 1) {
+        if (type.equals("normal")) {
             // Randomly pick a number for base, and fill base with those cards in alternating suit color.
             Random rand = new Random();
             int numb = 0;
@@ -125,7 +129,7 @@ public class GameActivity extends AppCompatActivity {
                 cards[i] = cards[randomCard];
                 cards[randomCard] = tempCard;
             }
-        } else if (type == 2) {
+        } else if (type.equals("dummy")) {
             // when predetermined selected - by place card into stack associated
             // TODO - Find at least a layout of solving game - Below is just a dummy layout
             cards[0] = new Card(1, 8);

@@ -8,6 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 public class DifficultySelectionActivity extends AppCompatActivity {
+    public static final String EXTRA_MESSAGE = "com.example.judyy.grandnapoleonsolitairegame.TYPE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,15 @@ public class DifficultySelectionActivity extends AppCompatActivity {
     }
 
     protected void onClickStartGame0(View v){
-        startActivity(new Intent(this, GameActivity.class));
+        Intent normalMode = new Intent(this, GameActivity.class);
+        normalMode.putExtra(EXTRA_MESSAGE, "normal");
+        startActivity(normalMode);
+    }
+
+    protected void onClickStartGame1(View v){
+        Intent dummyMode = new Intent(this, GameActivity.class);
+        dummyMode.putExtra(EXTRA_MESSAGE, "dummy");
+        startActivity(dummyMode);
     }
 
 
