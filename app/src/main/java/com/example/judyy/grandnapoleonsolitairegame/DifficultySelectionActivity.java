@@ -18,13 +18,13 @@ public class DifficultySelectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_difficulty_selection);
     }
 
-    protected void onClickStartGame0(View v){
+    public void onClickStartGame0(View v){
         Intent normalMode = new Intent(this, GameActivity.class);
         normalMode.putExtra(EXTRA_MESSAGE, "normal");
         startActivity(normalMode);
     }
 
-    protected void onClickStartGame1(View v){
+    public void onClickStartGame1(View v){
         Intent dummyMode = new Intent(this, GameActivity.class);
         dummyMode.putExtra(EXTRA_MESSAGE, "dummy");
         startActivity(dummyMode);

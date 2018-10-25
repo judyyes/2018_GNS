@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 //     Navigate to difficulty selection page onClick
-    protected void onClickDifficultySelection(View v){
+    public void onClickDifficultySelection(View v){
         startActivity(new Intent(this, DifficultySelectionActivity.class));
     }
 

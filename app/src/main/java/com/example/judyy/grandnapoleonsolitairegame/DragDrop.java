@@ -33,6 +33,7 @@ public class DragDrop {
     // Input from GameActivity
     private static Card[] cards;
     private static Stack[] stacks;
+    private static Recorder recorder;
 
     // Variables for Step Counter
     public static TextView stepCounter;
@@ -59,10 +60,11 @@ public class DragDrop {
      * @param counter The TextView element of the counter
      * @param undo    The Button element of the undo button
      */
-    public void main(Context context, Card[] c, Stack[] s) {
+    public void main(Context context, Card[] c, Stack[] s, Recorder r) {
         // Assignment for variables used in Drag and Drop
         cards = c;
         stacks = s;
+        recorder = r;
         numSteps = 0;   // Reset numSteps to 0
         // Get size of stack ImageView
         direction = 0;
@@ -149,6 +151,10 @@ public class DragDrop {
 
         // Check if target stack is valid for putting cards on
         if (validStack) {
+
+            // FIXME Record Step, will introduce many bugs
+            recorder.recordStep(card);
+
             // Special case. Card is dropped in cellar.
             if (whichStack == 48 && stacks[whichStack].getCurrentCards().size() == 0) {
                 // Undo button variables assignment
