@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/2018_GNS.iml" filepath="$PROJECT_DIR$/2018_GNS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/2018_GNS.iml" filepath="$PROJECT_DIR$/.idea/2018_GNS.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
