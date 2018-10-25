@@ -1115,5 +1115,17 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+    <ImageView
+        android:id="@+id/undo_btn"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintVertical_bias="0.99"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 </android.support.constraint.ConstraintLayout>
 

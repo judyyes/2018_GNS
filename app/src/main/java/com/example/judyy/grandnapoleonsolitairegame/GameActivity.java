@@ -24,6 +24,7 @@ public class GameActivity extends AppCompatActivity {
     Stack[] stacks = new Stack[53];
     Card[] cards = new Card[52];
     Context context = this;
+    Recorder recorder;
     public Button pauseButton;
     public Button hintButton;
     public TextView stepCounter;
@@ -41,8 +42,12 @@ public class GameActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
 
+        // Set game difficulty
         Intent intent = getIntent();
         type = intent.getStringExtra(DifficultySelectionActivity.EXTRA_MESSAGE);
+
+        //Initialize recorder
+        recorder = new Recorder(this);
 
         //Display card to table
         displayCards(type, cards, stacks);
@@ -55,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v){
                 boolean zooming = gameLayout.toggleZooming();
                 if (zooming){
-                    // Sort of Blue color filter
+                    // Sort of Blue More like Green color filter
                     zoomToggle.setColorFilter(Color.argb(123, 0, 255, 162));
                 } else {
                     zoomToggle.clearColorFilter();
@@ -63,6 +68,14 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+        final ImageView undoBtn = findViewById(R.id.undo_btn);
+        undoBtn.setImageResource(R.drawable.undo_btn);
+        undoBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                recorder.undoOneStep();
+            }
+        });
     }
 
 
@@ -318,7 +331,7 @@ public class GameActivity extends AppCompatActivity {
             int tempID = cards[i].getCurrentStackID();
             cards[i].setXYPositions(stacks[tempID].getLeftSideLocation(), stacks[tempID].getTopSideLocation());
         }
-        new DragDrop().main(context, cards, stacks);
+        new DragDrop().main(context, cards, stacks, recorder);
 
     }
 
