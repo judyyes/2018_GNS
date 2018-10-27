@@ -39,14 +39,6 @@ public class DragDrop {
     public static TextView stepCounter;
     public static int numSteps = 0;
 
-    // Variables for Undo
-    private static Button undoButton;
-    public static float previousX, previousY;
-    public static Card previousCard;
-    public static int previousStack;
-    public static boolean previousCanMove;
-
-
     public static int step = 0;
     public static Context c;
 
@@ -96,7 +88,7 @@ public class DragDrop {
         dx = x - i.getX();
         dy = y - i.getY();
         // Remove the card from its stack
-        stacks[c.getCurrentStackID()].removeCardFromStack(c);
+//        stacks[c.getCurrentStackID()].removeCardFromStack(c);
     }
 
     /**
@@ -157,36 +149,13 @@ public class DragDrop {
 
             // Special case. Card is dropped in cellar.
             if (whichStack == 48 && stacks[whichStack].getCurrentCards().size() == 0) {
-                // Undo button variables assignment
-                previousCard = card;
-                previousX = card.getXPosition();
-                previousY = card.getYPosition();
-                previousStack = card.getCurrentStackID();
-                previousCanMove = card.getCanMove();
-
-                // Set the bottom card in original stack to be movable if it is the only card left
-                // TODO make this a method later
-                if ((previousStack < 20 || previousStack > 23) && stacks[previousStack].getCurrentCards().size()==1){
-                    stacks[previousStack].getFirstCard().setCanMove(true);
-                }
-
-                // Add the card to the cellar
-                stacks[whichStack].addCardToStack(card);
+                Stack currentStack = stacks[card.getCurrentStackID()];
+                Stack stackToDrop = stacks[whichStack];
 
                 // Assign the location to be set for the card
                 xToSet = stacks[whichStack].getLeftSideLocation();
                 yToSet = stacks[whichStack].getTopSideLocation();
-
-                // Set the card's position
-                cardImage.setX(xToSet);
-                cardImage.setY(yToSet);
-
-                // Overwrite the card's position to the new position
-                card.setXYPositions(xToSet, yToSet);
-
-
-                // Unlock the cards that must be unlocked after the move
-                cardMoveCheck(previousStack);
+                moveCard(currentStack, card, stackToDrop, xToSet, yToSet);
 
                 // Lock card
                 if (stacks[47].getCurrentCards().size() > 0 && stacks[49].getCurrentCards().size() > 0  ){
@@ -195,118 +164,46 @@ public class DragDrop {
 
                 // Special case. Stack is 16 to 19, or 24 to 27 and the stack is empty
             } else if (((whichStack >= 16 && whichStack < 20) || (whichStack >= 24 && whichStack < 28)) && stacks[whichStack].getCurrentCards().size() == 0) {
-                // Undo button variables assignment
-                previousCard = card;
-                previousX = card.getXPosition();
-                previousY = card.getYPosition();
-                previousStack = card.getCurrentStackID();
-                previousCanMove = card.getCanMove();
 
-                // Set the bottom card in original stack to be movable if it is the only card left
-                // TODO make this a method later
-                if ((previousStack < 20 || previousStack > 23) && stacks[previousStack].getCurrentCards().size()==1){
-                    stacks[previousStack].getFirstCard().setCanMove(true);
-                }
-
-                // Add the card to the stack
-                stacks[whichStack].addCardToStack(card);
-
+                Stack currentStack = stacks[card.getCurrentStackID()];
+                Stack stackToDrop = stacks[whichStack];
                 // Assign the location to be set for the card
-                xToSet = stacks[whichStack].getLeftSideLocation();
-                yToSet = stacks[whichStack].getTopSideLocation();
+                xToSet = stackToDrop.getLeftSideLocation();
+                yToSet = stackToDrop.getTopSideLocation();
+                moveCard(currentStack, card, stackToDrop, xToSet, yToSet);
 
-                // Set the card's position
-                cardImage.setX(xToSet);
-                cardImage.setY(yToSet);
-
-                // Overwrite the card's position to the new position
-                card.setXYPositions(xToSet, yToSet);
-
-                while(stacks[previousStack].getCurrentCards().size() != 0  && (previousStack >23 || previousStack < 20)){
-                    card = stacks[previousStack].getLastCard();
-                    card.getImageView().bringToFront();
-                    stacks[previousStack].removeCardFromStack(card);
-//                    stacks[whichStack].addCardToStack(card);
-//                    cardImage = card.getImageView();
-//                    cardImage.setX(xToSet);
-//                    cardImage.setY(yToSet);
-//                    card.setXYPositions(xToSet, yToSet);
+                while(currentStack.getCurrentCards().size() != 0  && (currentStack.getStackID() >23 || currentStack.getStackID() < 20)){
+                    card = currentStack.getLastCard();
                     actionUp(card, x, y);
                 }
-                // Unlock the cards that must be unlocked after the move.
-                cardMoveCheck(previousStack);
 
                 // Any other case
             } else {
-                Stack cardStack = stacks[whichStack];
-//                Log.d("", "Stack is valid");
+                Stack stackToDrop = stacks[whichStack];
+                Stack currentStack = stacks[card.getCurrentStackID()];
                 // Compare whether the two cards can be stacked
-                if (compareCards(cardStack, card)) {
-//                    Log.d("", "Two cards can be stacked");
-
-
-                    // Undo button variables assignment
-                    previousCard = card;
-                    previousX = card.getXPosition();
-                    previousY = card.getYPosition();
-                    previousStack = card.getCurrentStackID();
-                    previousCanMove = card.getCanMove();
-
-                    // Make sure the bottom stacked card cannot be moved
-                    stacks[whichStack].getFirstCard().setCanMove(false);
-                    // Set the bottom card in original stack to be movable if it is the only card left
-                    // TODO make this a method later
-                    if ((previousStack < 20 || previousStack > 23) && stacks[previousStack].getCurrentCards().size()==1){
-                        stacks[previousStack].getFirstCard().setCanMove(true);
+                if (compareCards(stackToDrop, card)) {
+                    // On the left side of the board, set offset to the left
+                    if (whichStack < 20) {
+                        xToSet = stackToDrop.getLeftSideLocation() - xSpaceStack;
+                        yToSet = stackToDrop.getTopSideLocation();
+                    // In the base stacks, set offset to below
+                    } else if (whichStack < 24) {
+                        xToSet = stackToDrop.getLeftSideLocation();
+                        yToSet = stackToDrop.getTopSideLocation() + ySpaceStack;
+                    } else if (whichStack < 44) {
+                        xToSet = stackToDrop.getLeftSideLocation() + xSpaceStack;
+                        yToSet = stackToDrop.getTopSideLocation();
                     }
 
-                    // If the stack has no cards, assign the location to be set for the card to simply the stack
-                    if (stacks[whichStack].getCurrentCards().size() == 0) {
-                        xToSet = stacks[whichStack].getLeftSideLocation();
-                        yToSet = stacks[whichStack].getTopSideLocation();
-                    } else {
-                        // On the left side of the board, set offset to the left
-                        if (whichStack < 20) {
-                            xToSet = stacks[whichStack].getLeftSideLocation() - xSpaceStack;
-                            yToSet = stacks[whichStack].getTopSideLocation();
-                            // In the base stacks, set offset to below
-                        } else if (whichStack < 24) {
-                            xToSet = stacks[whichStack].getLeftSideLocation();
-                            yToSet = stacks[whichStack].getTopSideLocation() + ySpaceStack;
-                        } else if (whichStack < 44) {
-                            xToSet = stacks[whichStack].getLeftSideLocation() + xSpaceStack;
-                            yToSet = stacks[whichStack].getTopSideLocation();
-                        }
+                    moveCard(currentStack, card, stackToDrop, xToSet, yToSet);
+
+                    while(currentStack.getCurrentCards().size() != 0 && (currentStack.getStackID() >23 || currentStack.getStackID() < 20)){
+                        card = currentStack.getLastCard();
+                        cardImage = card.getImageView();
+                        moveCard(currentStack, card, stackToDrop, xToSet, yToSet);
                     }
-                    // Add card to the stack
-                    stacks[whichStack].addCardToStack(card);
-
-                    // Set the card's position
-                    cardImage.setX(xToSet);
-                    cardImage.setY(yToSet);
-//                    Log.d("", "X and Y are set to " + xToSet + " " + yToSet);
-
-                    // Overwrite the card's position to the new position
-                    card.setXYPositions(xToSet, yToSet);
-
-
-                    while(stacks[previousStack].getCurrentCards().size() != 0 && (previousStack >23 || previousStack < 20)){
-                        card = stacks[previousStack].getLastCard();
-                        card.getImageView().bringToFront();
-                        stacks[previousStack].removeCardFromStack(card);
-//                        //
-//                        stacks[whichStack].addCardToStack(card);
-//                        cardImage = card.getImageView();
-//                        cardImage.setX(xToSet);
-//                        cardImage.setY(yToSet);
-//                        card.setXYPositions(xToSet, yToSet);
-                        actionUp(card, x, y);
-                    }
-                    // Unlock the cards that must be unlocked after the move
-                    cardMoveCheck(previousStack);
-                    // Not valid, add card back to where it was
                 } else {
-                    stacks[card.getCurrentStackID()].addCardToStack(card);
                     cardImage.setX(card.getXPosition());
                     cardImage.setY(card.getYPosition());
                 }
@@ -315,11 +212,32 @@ public class DragDrop {
         } else {
             xToSet = card.getXPosition();
             yToSet = card.getYPosition();
-            stacks[cardID].addCardToStack(card);
             cardImage.setX(xToSet);
             cardImage.setY(yToSet);
         }
 
+    }
+
+    public void moveCard(Stack currentStack, Card card, Stack stackToDrop, float xToSet, float yToSet) {
+        ImageView cardImage = card.getImageView();
+        cardImage.bringToFront();
+        // Remove the card from its stack & and release the following card
+        currentStack.removeCardFromStack(card);
+        if (currentStack.getCurrentCards().size() != 0) {
+            currentStack.getLastCard().setCanMove(true);
+        }else {
+            nextStack(currentStack).getLastCard().setCanMove(true);
+        }
+        // Lock the current top card of the target stack & Add card to the stack
+        if (stackToDrop.getCurrentCards().size() != 0){
+            stackToDrop.getLastCard().setCanMove(false);
+        }
+        stackToDrop.addCardToStack(card);
+        // Set the card's position
+        cardImage.setX(xToSet);
+        cardImage.setY(yToSet);
+        // Overwrite the card's position to the new position
+        card.setXYPositions(xToSet, yToSet);
     }
 
     /**
@@ -390,6 +308,8 @@ public class DragDrop {
         } else {
             haveCards = true;
         }
+
+        if ((whichStack == stackID + 4 && stackID < 16) || (stackID == whichStack + 4 && stackID > 27 && stackID < 44)) return true;
 
         // If first column on the left, can only stack if there are cards
         if (whichStack < 4) {
@@ -478,35 +398,24 @@ public class DragDrop {
         }
     }
 
-
-    /**
-     * Unlock the cards that should be unlocked by the move.
-     * This is called every time a valid move was done by the user.
-     *
-     * @param stackID ID of the card that was moved
-     */
-    private static void cardMoveCheck(int stackID) {
-        // Simply unlock the card to the right if stack < 16
+    private static Stack nextStack(Stack currentStack) {
+        int stackID = currentStack.getStackID();
+        Stack nextStack = new Stack(-1);
+        nextStack.addCardToStack(new Card(0, 0));
+        // case: left side cards
         if (stackID < 16) {
-            for (int i = 0; i < stacks[stackID + 4].getCurrentCards().size(); i++) {
-                stacks[stackID + 4].getCurrentCards().get(i).setCanMove(true);
-            }
-            // Simply unlock the card to the left if stack >= 24 and < 44
+            nextStack = stacks[stackID + 4];
+        // case: right side cards
         } else if (stackID >= 24 && stackID < 44) {
-            for (int i = 0; i < stacks[stackID - 4].getCurrentCards().size(); i++) {
-                stacks[stackID - 4].getCurrentCards().get(i).setCanMove(true);
-            }
-            // Simply unlock the card to the right
+            nextStack = stacks[stackID - 4];
+        // case: last row, left side
         } else if (stackID >= 44 && stackID < 48) {
-            for (int i = 0; i < stacks[stackID + 1].getCurrentCards().size(); i++) {
-                stacks[stackID + 1].getCurrentCards().get(i).setCanMove(true);
-            }
-            // Simply unlock the card to the left
+            nextStack = stacks[stackID + 1];
+        // case: last row, right side
         } else if (stackID > 48) {
-            for (int i = 0; i < stacks[stackID - 1].getCurrentCards().size(); i++) {
-                stacks[stackID - 1].getCurrentCards().get(i).setCanMove(true);
-            }
+            nextStack = stacks[stackID - 1];
         }
+        return nextStack;
     }
 
     /**
@@ -545,46 +454,6 @@ public class DragDrop {
             }
         }
         return false;
-    }
-
-    private static void setUpUndo() {
-        undoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (previousCard != null) {
-                    Log.d("UNDO CALLLED --------", "" + previousCard.getXPosition());
-                    Log.d("UNDO CALLLED --------", "" + previousX);
-                    Log.d("UNDO CALLLED --------", "" + previousCard.getYPosition());
-                    Log.d("UNDO CALLLED --------", "" + previousY);
-                    Log.d("UNDO CALLLED --------", "" + previousCard.getCurrentStackID());
-                    Log.d("UNDO CALLLED --------", "" + previousStack);
-
-                    // Check if the card can be moved back
-                    if ((previousCard.getXPosition() != previousX && previousCard.getCurrentStackID() != previousStack) || (previousCard.getYPosition() != previousY && previousCard.getCurrentStackID() != previousStack)) {
-                        Boolean currentState = true;
-                        if (previousCard.getYPosition() == previousY && previousCard.getCurrentStackID() != previousStack) {
-                            currentState = false;
-                        }
-//                        Log.d("", "Undo-ing");
-                        // Undo the previous move
-                        int id = previousCard.getCurrentStackID();
-                        stacks[previousCard.getCurrentStackID()].removeCardFromStack(previousCard);
-                        stacks[previousStack].addCardToStack(previousCard);
-                        previousCard.setXYPositions(previousX, previousY);
-                        previousCard.getImageView().setX(previousX);
-                        previousCard.getImageView().setY(previousY);
-                        previousCard.setCanMove(previousCanMove); //This cause problem after under the stack previous can now move
-                        if (stacks[id] != null && id != 48) {
-                            stacks[id].getFirstCard().setCanMove(currentState);
-                        }
-
-                        previousCard = null;
-                    }
-                } else {
-                    Log.d("", "Cannot undo");
-                }
-            }
-        });
     }
 
 
