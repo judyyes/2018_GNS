@@ -34,6 +34,7 @@ public class DragDrop {
     private static Card[] cards;
     private static Stack[] stacks;
     private static Recorder recorder;
+    private static HintSolver solver;
 
     // Variables for Step Counter
     public static TextView stepCounter;
@@ -52,11 +53,12 @@ public class DragDrop {
      * @param counter The TextView element of the counter
      * @param undo    The Button element of the undo button
      */
-    public void main(Context context, Card[] c, Stack[] s, Recorder r) {
+    public void main(Context context, Card[] c, Stack[] s, Recorder r, HintSolver hint) {
         // Assignment for variables used in Drag and Drop
         cards = c;
         stacks = s;
         recorder = r;
+        solver = hint;
         numSteps = 0;   // Reset numSteps to 0
         // Get size of stack ImageView
         direction = 0;
@@ -444,6 +446,7 @@ public class DragDrop {
         if(c1.getCurrentStackID() > 19 && c1.getCurrentStackID() < 24 && s1.getCurrentCards().size() == 1) {
             if (direction == 0) {
                 direction = (c2.getNumber() - c1.getNumber());
+                solver.setDirection(direction);
             } else {
                 return (c2.getNumber() - c1.getNumber()) == direction;
             }

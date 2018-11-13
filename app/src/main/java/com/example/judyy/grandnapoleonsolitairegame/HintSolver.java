@@ -1,76 +1,49 @@
 package com.example.judyy.grandnapoleonsolitairegame;
 
+import android.util.Log;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
 public class HintSolver {
-    int hintDirection = 0;
+    static int hintDirection = 0;
+    boolean directionSet = false;
     int nextDiamond;
     int nextClub;
     int nextHeart;
     int nextSpade;
-    Stack<Integer> cardOfInterest;
-    int stackToBuild;
-    DragDrop mDragDrop;
+//    int stackToBuild;
     final List<Integer> emptyStacks = Arrays.asList(16,17,18,19,24,25,26,27,48);
 
     private static com.example.judyy.grandnapoleonsolitairegame.Stack[] stacks;
 
-    public HintSolver(GameActivity gameActivity, DragDrop dd){
-        mDragDrop = dd;
+    public HintSolver(GameActivity gameActivity){
         stacks = gameActivity.stacks;
     }
 
-    public void init(){
-        if (mDragDrop.direction != 0){
-            hintDirection = mDragDrop.direction;
-        } else {
-            hintDirection = guessDirection(mDragDrop);
+    public void setDirection(){
+        Log.d("Direction Set", "Auto");
+        if (!directionSet){
+            hintDirection = guessDirection();
         }
-//        nextDiamond = calculateCost(1, stacks[20].getLastCard().getNumber() + hintDirection);
-//        nextClub = calculateCost(2, stacks[21].getLastCard().getNumber() + hintDirection);
-//        nextHeart = calculateCost(3, stacks[22].getLastCard().getNumber() + hintDirection);
-//        nextSpade = calculateCost(4, stacks[23].getLastCard().getNumber() + hintDirection);
+        Log.d("Direction Set", String.valueOf(hintDirection));
     }
 
-    public Hint requesetHint(){
-        // optimize the algorithm to be more intuitive nah?
-//        while (!cardOfInterest.isEmpty()){
-//            int i = cardOfInterest.pop();
-//        }
-        return requestHint(true);
+    public void setDirection(int direction){
+        directionSet = true;
+        hintDirection = direction;
     }
 
-    public Hint requestHint(boolean needInitialize){
 
-        if (needInitialize){
-            init();
-//            int[] array = {nextDiamond, nextClub, nextHeart, nextSpade};
-
-
-            }
+    public Hint requestHint(){
         int emptyStackCnt = countEmptyStack();
         for (int i=0; i<4; i++){
-            int nextCardStack = findCard(i+1, stacks[i+20].getLastCard().getNumber() + hintDirection);
-            Hint mHint = solve(nextCardStack, emptyStackCnt, 0);
+            Hint mHint = solve(i+20, emptyStackCnt, 0);
             if (mHint != null){
                 return mHint;
             }
 
-//            Arrays.sort(array);
-
-
-//            int minimumCost = array[0];
-//            if (minimumCost == nextDiamond){
-//                stackToBuild = 20;
-//            } else if (minimumCost == nextClub){
-//                stackToBuild = 21;
-//            } else if (minimumCost == nextHeart){
-//                stackToBuild = 22;
-//            } else {
-//                stackToBuild = 23;
-//            }
         }
         return null;
     }
@@ -134,12 +107,16 @@ public class HintSolver {
         Card card = stacks[stackNum].getLastCard();
         int cardSuit = card.getSuit();
         int cardNum = card.getNumber();
-        int nextCost = calculateCost(cardSuit, cardNum+hintDirection);
+        int nextCost = calculateCost(cardSuit, cardNum + hintDirection);
+//        Log.d("Find Next Suite", String.valueOf(cardSuit));
+//        Log.d("Find Next Num", String.valueOf(cardNum));
+//        Log.d("Find Next Cost", String.valueOf(nextCost));
         int outerStack = findOuterStack(stackNum);
-        if (nextCost==0){
+        int nextCard = findCard(cardSuit, cardNum + hintDirection);
+        if (nextCost==0 && nextCard<44){
 
-            if (outerStack==99 || stacks[outerStack].getLastCard()==null){ // The card can be moved
-                return new Hint(stackNum, findCard(cardSuit, cardNum+hintDirection));
+            if (outerStack>=99 || stacks[outerStack].getLastCard()==null){ // The card can be moved
+                return new Hint(stackNum, nextCard);
             } else { // Try to move outer card
                 return solve(outerStack, availableStack, cumulativeCost);
             }
@@ -147,10 +124,11 @@ public class HintSolver {
         } else{
             if (availableStack==0 || nextCost+cumulativeCost>=99){ // Cannot solve
                 return null;
-            } else if(outerStack==99 || stacks[outerStack].getLastCard()==null){ // Move to empty stack
+            } else if(outerStack>=99 || stacks[outerStack].getLastCard()==null){ // Move to empty stack
                 return new Hint(stackNum, getEmptyStack());
+            } else {
+                return solve(outerStack, availableStack-1, nextCost+cumulativeCost); // Try to solve recursively
             }
-            return solve(findOuterStack(stackNum), availableStack-1, nextCost+cumulativeCost); // Try to solve recursively
         }
 
     }
@@ -180,15 +158,20 @@ public class HintSolver {
         if (cardNum == 0){ // King come before Ace
             cardNum = 13;
         }
-        for (int i=0; i <54; i++){
+//        Log.d("Find Next Suite", String.valueOf(cardSuit));
+//        Log.d("Find Next Num", String.valueOf(cardNum));
+
+        for (int i=0; i <53; i++){
             Card card = stacks[i].getLastCard();
             if (card==null){
                 continue;
             }
             if (card.getSuit()==cardSuit && card.getNumber()==cardNum){
+//                Log.d("Find Next Res", String.valueOf(i));
                 return i;
             }
         }
+//        Log.d("Find Next Res", String.valueOf(99));
         return 99;
     }
 
@@ -206,6 +189,7 @@ public class HintSolver {
     public int costHelper(int index){
         int cost = 0;
         int row;
+//        Log.d("Cost Index", String.valueOf(index));
         if (index < 20){
             row = index % 4;
             for (int i=0; i<=4; i++){
@@ -219,7 +203,6 @@ public class HintSolver {
                 cost ++;
             }
         } else if (index < 24){
-
         } else if(index < 44){
             row = index % 4;
             for (int i=4; i>=0; i--){
@@ -256,18 +239,12 @@ public class HintSolver {
             int costLeft= 0;
             int costRight = 0;
             for (int i=44; i<48; i++){
-                if (i == index){
-                    break;
-                }
                 if (stacks[i].getLastCard()==null){
                     continue;
                 }
                 costLeft ++;
             }
             for (int i=52; i>48; i--){
-                if (i == index){
-                    break;
-                }
                 if (stacks[i].getLastCard()==null){
                     continue;
                 }
@@ -280,7 +257,7 @@ public class HintSolver {
 
 
 
-    private int guessDirection(DragDrop dd){
+    private int guessDirection(){
         int upwards = 0;
         int downwards = 0;
         int cardNum = stacks[20].getLastCard().getNumber();
