@@ -28,7 +28,7 @@ public class DragDrop {
     private static float dx, dy, x, y, initialX, initialY;
     private static float stackHeight;
     private static float stackWidth;
-    private static int direction = 0;
+    protected static int direction = 0;
 
     // Input from GameActivity
     private static Card[] cards;
