@@ -39,7 +39,9 @@ public class HintSolver {
     public Hint requestHint(){
         int emptyStackCnt = countEmptyStack();
         for (int i=0; i<4; i++){
-            Hint mHint = solve(i+20, emptyStackCnt, 0);
+            int cardNum = stacks[i+20].getLastCard().getNumber();
+            int moveFrom = findCard(i+1, cardNum+hintDirection);
+            Hint mHint = solve(moveFrom, emptyStackCnt);
             if (mHint != null){
                 return mHint;
             }
@@ -103,34 +105,41 @@ public class HintSolver {
         }
     }
 
-    private Hint solve(int stackNum, int availableStack, int cumulativeCost){
-        Card card = stacks[stackNum].getLastCard();
+    private Hint solve(int moveFrom, int availableStack){
+        if (moveFrom >= 99) return null;
+
+        int costFrom = costHelper(moveFrom);
+
+        Card card = stacks[moveFrom].getLastCard();
         int cardSuit = card.getSuit();
         int cardNum = card.getNumber();
-        int nextCost = calculateCost(cardSuit, cardNum + hintDirection);
-//        Log.d("Find Next Suite", String.valueOf(cardSuit));
-//        Log.d("Find Next Num", String.valueOf(cardNum));
-//        Log.d("Find Next Cost", String.valueOf(nextCost));
-        int outerStack = findOuterStack(stackNum);
-        int nextCard = findCard(cardSuit, cardNum + hintDirection);
-        if (nextCost==0 && nextCard<44){
+        int moveTo = findCard(cardSuit, cardNum-hintDirection);
+        if (moveTo>= 99) return null;
 
-            if (outerStack>=99 || stacks[outerStack].getLastCard()==null){ // The card can be moved
-                return new Hint(stackNum, nextCard);
-            } else { // Try to move outer card
-                return solve(outerStack, availableStack, cumulativeCost);
-            }
+        int costTo = costHelper(moveTo);
 
-        } else{
-            if (availableStack==0 || nextCost+cumulativeCost>=99){ // Cannot solve
-                return null;
-            } else if(outerStack>=99 || stacks[outerStack].getLastCard()==null){ // Move to empty stack
-                return new Hint(stackNum, getEmptyStack());
-            } else {
-                return solve(outerStack, availableStack-1, nextCost+cumulativeCost); // Try to solve recursively
-            }
+        if ( costTo > 0 && costFrom == 0 && findOuterStack(moveTo)==moveFrom){
+            return new Hint(moveFrom, moveTo);
         }
 
+        if ( costTo>0 || moveTo>=44 ){ // Destination stack cannot be stacked
+            if (availableStack>0){
+                if (costFrom > 0){
+                    return solve(findOuterStack(moveFrom), availableStack-1);
+                } else {
+                    return new Hint(moveFrom, getEmptyStack());
+                }
+
+            } else {
+                return null;
+            }
+        } else {
+            if (costFrom > 0){
+                return solve(findOuterStack(moveFrom), availableStack);
+            } else {
+                return new Hint(moveFrom, moveTo);
+            }
+        }
     }
 
     private int countEmptyStack(){
@@ -171,7 +180,7 @@ public class HintSolver {
                 return i;
             }
         }
-//        Log.d("Find Next Res", String.valueOf(99));
+        Log.d("Find Next Res", String.valueOf(99));
         return 99;
     }
 
