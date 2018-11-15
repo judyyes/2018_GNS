@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +26,7 @@ public class GameActivity extends AppCompatActivity {
     Card[] cards = new Card[52];
     Context context = this;
     Recorder recorder;
+    HintSolver solver;
     public Button pauseButton;
     public Button hintButton;
     public TextView stepCounter;
@@ -48,6 +50,9 @@ public class GameActivity extends AppCompatActivity {
 
         //Initialize recorder
         recorder = new Recorder(this);
+
+        //Initialize Hint Solver
+        solver = new HintSolver(this);
 
         //Display card to table
         displayCards(type, cards, stacks);
@@ -74,6 +79,55 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 recorder.undoOneStep();
+            }
+        });
+
+        final ImageView hintBtn = findViewById(R.id.hint_btn);
+        hintBtn.setImageResource(R.drawable.hint_btn);
+        solver.setDirection();
+        hintBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Hint mHint = solver.requestHint();
+                if (mHint == null){
+                    // TODO Display dialog
+                    Log.d("Hint", "No Hint");
+                } else {
+                    for (int i = 20; i<24; i++){
+                        Log.d("last", String.valueOf(stacks[i].getLastCard().getNumber()));
+                    }
+
+                    int originCard = mHint.getOrigin();
+//                    Card cardToMove = null;
+//                    while (cardToMove == null){
+                    Card cardToMove = stacks[originCard].getLastCard();
+                    int destinationCard = mHint.getDestination();
+//                    Card cardToStack = null;
+                    Card cardToStack = stacks[destinationCard].getLastCard();
+                    if (cardToMove == null){
+                        Log.d("Hint", String.valueOf(originCard));
+
+                    } else {
+                        ImageView orgImage = cardToMove.getImageView();
+                        orgImage.setColorFilter(Color.argb(123, 0, 255, 162));
+                    }
+
+                    if (cardToStack == null){
+                        Log.d("Hint", String.valueOf(destinationCard));
+                    } else {
+                        ImageView destImage = cardToStack.getImageView();
+                        destImage.setColorFilter(Color.argb(123, 255, 127, 80));
+                    }
+
+//                    cardToMove.setOnTouchListener(new View.OnTouchListener(){
+//                        @Override
+//                        public boolean onTouch(View view, MotionEvent motionEvent) {
+//                            cardToMove.clearColorFilter();
+//                            cardToMove.setOnTouchListener(null);
+//                            return false;
+//                        }
+//                    });
+                }
             }
         });
     }
@@ -331,7 +385,7 @@ public class GameActivity extends AppCompatActivity {
             int tempID = cards[i].getCurrentStackID();
             cards[i].setXYPositions(stacks[tempID].getLeftSideLocation(), stacks[tempID].getTopSideLocation());
         }
-        new DragDrop().main(context, cards, stacks, recorder);
+        new DragDrop().main(context, cards, stacks, recorder, solver);
 
     }
 
