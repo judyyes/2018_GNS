@@ -93,10 +93,6 @@ public class GameActivity extends AppCompatActivity {
                     // TODO Display dialog
                     Log.d("Hint", "No Hint");
                 } else {
-                    for (int i = 20; i<24; i++){
-                        Log.d("last", String.valueOf(stacks[i].getLastCard().getNumber()));
-                    }
-
                     int originCard = mHint.getOrigin();
 //                    Card cardToMove = null;
 //                    while (cardToMove == null){
