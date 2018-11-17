@@ -38,16 +38,18 @@ public class HintSolver {
 
     public Hint requestHint(){
         int emptyStackCnt = countEmptyStack();
+        Hint result = null;
+        int queueNum = -1;
         for (int i=0; i<4; i++){
             int cardNum = stacks[i+20].getLastCard().getNumber();
             int moveFrom = findCard(i+1, cardNum+hintDirection);
             Hint mHint = solve(moveFrom, emptyStackCnt);
-            if (mHint != null){
-                return mHint;
+            if (mHint != null && mHint.getPriority() > queueNum){
+                result = mHint;
             }
 
         }
-        return null;
+        return result;
     }
 
     public int findOuterStack(int index){
@@ -119,7 +121,7 @@ public class HintSolver {
         int costTo = costHelper(moveTo);
 
         if ( costTo > 0 && costFrom == 0 && findOuterStack(moveTo)==moveFrom){
-            return new Hint(moveFrom, moveTo);
+            return new Hint(moveFrom, moveTo, availableStack);
         }
 
         if ( costTo>0 || moveTo>=44 ){ // Destination stack cannot be stacked
@@ -127,7 +129,7 @@ public class HintSolver {
                 if (costFrom > 0){
                     return solve(findOuterStack(moveFrom), availableStack-1);
                 } else {
-                    return new Hint(moveFrom, getEmptyStack());
+                    return new Hint(moveFrom, getEmptyStack(), availableStack-1);
                 }
 
             } else {
@@ -137,7 +139,7 @@ public class HintSolver {
             if (costFrom > 0){
                 return solve(findOuterStack(moveFrom), availableStack);
             } else {
-                return new Hint(moveFrom, moveTo);
+                return new Hint(moveFrom, moveTo, availableStack);
             }
         }
     }
