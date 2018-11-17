@@ -30,12 +30,23 @@ public class Recorder {
         }
 
         public void undo(){
-            mStacks[previousCard.getCurrentStackID()].removeCardFromStack(previousCard);
+            int removeStackId = previousCard.getCurrentStackID();
+            mStacks[removeStackId].removeCardFromStack(previousCard);
+            if (mStacks[removeStackId].getLastCard() != null){
+                mStacks[removeStackId].getLastCard().setCanMove(true);
+            }
+            if (mStacks[previousStack].getFirstCard() != null){
+                mStacks[previousStack].getFirstCard().setCanMove(false);
+            } else {
+                int innerStackId = findInnerStack(previousStack);
+                if (innerStackId != 99){
+                    mStacks[innerStackId].getLastCard().setCanMove(false);
+                }
+            }
             mStacks[previousStack].addCardToStack(previousCard);
             previousCard.setXYPositions(previousX, previousY);
             previousCard.getImageView().setX(previousX);
             previousCard.getImageView().setY(previousY);
-//            previousCard.setCanMove(previousCanMove); //This cause problem after under the stack previous can now move
         }
     }
 
@@ -53,5 +64,13 @@ public class Recorder {
         boolean previousCanMove = card.getCanMove();
         OneStep newStep = new OneStep(card, previousX, previousY, previousStack, previousCanMove);
         mRecord.push(newStep);
+    }
+
+    public int findInnerStack(int index){
+        if (index < 16) return index + 4;
+        if (index > 27 && index < 44) return index - 4;
+        if (index > 43 && index <48) return index + 1;
+        if (index > 48 && index < 53) return index - 1;
+        return 99;
     }
 }
