@@ -4,7 +4,7 @@
     <string name="title_activity_game">GameActivity</string>
     <string name="Start">Start</string>
     <string name="Normal_Difficulty">Normal Difficulty</string>
-    <string name="Dummy_Difficulty">Trivial Difficulty</string>
+    <string name="Dummy_Difficulty">A Simple Example</string>
 
 
 </resources>
