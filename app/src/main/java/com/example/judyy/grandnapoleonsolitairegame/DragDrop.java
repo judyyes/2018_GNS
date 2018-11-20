@@ -233,7 +233,8 @@ public class DragDrop {
         if (currentStack.getCurrentCards().size() != 0) {
             currentStack.getLastCard().setCanMove(true);
         }else {
-            nextStack(currentStack).getLastCard().setCanMove(true);
+            Card tNextCard = nextStack(currentStack).getLastCard();
+            if (tNextCard != null) tNextCard.setCanMove(true);
         }
         // Lock the current top card of the target stack & Add card to the stack
         if (stackToDrop.getCurrentCards().size() != 0){
