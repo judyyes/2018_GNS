@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.design.widget.Snackbar;
 
 import java.util.Random;
 
@@ -34,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
     public static int edtStep;
     public static Chronometer edtTime, timer;
     public static Boolean done = false;
+    Snackbar mHintSnackbar;
 
 
 
@@ -86,6 +88,7 @@ public class GameActivity extends AppCompatActivity {
         final ImageView hintBtn = findViewById(R.id.hint_btn);
         hintBtn.setImageResource(R.drawable.hint_btn);
         solver.setDirection();
+        mHintSnackbar = Snackbar.make(gameLayout, R.string.No_Hint, Snackbar.LENGTH_SHORT);
         hintBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -93,6 +96,7 @@ public class GameActivity extends AppCompatActivity {
                 if (mHint == null){
                     // TODO Display dialog
                     Log.d("Hint", "No Hint");
+                    mHintSnackbar.show();
                 } else {
                     int originCard = mHint.getOrigin();
 //                    Card cardToMove = null;
@@ -391,7 +395,6 @@ public class GameActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         setStacksLocation();
     }
-
 
 
 

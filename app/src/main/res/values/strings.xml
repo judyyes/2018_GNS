@@ -5,6 +5,7 @@
     <string name="Start">Start</string>
     <string name="Normal_Difficulty">Normal Difficulty</string>
     <string name="Dummy_Difficulty">A Simple Example</string>
-
+    <string name="No_Hint">Unable to find any good move</string>
+    <string name="Win_Dialog">You win</string>
 
 </resources>

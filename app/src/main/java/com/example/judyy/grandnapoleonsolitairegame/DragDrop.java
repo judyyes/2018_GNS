@@ -5,6 +5,7 @@ package com.example.judyy.grandnapoleonsolitairegame;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -218,6 +219,10 @@ public class DragDrop {
             cardImage.setY(yToSet);
         }
 
+        if (winConditionCheck()){
+            Snackbar mWinSnackbar = Snackbar.make(cardImage, R.string.Win_Dialog, Snackbar.LENGTH_INDEFINITE);
+            mWinSnackbar.show();
+        }
     }
 
     public void moveCard(Stack currentStack, Card card, Stack stackToDrop, float xToSet, float yToSet) {
