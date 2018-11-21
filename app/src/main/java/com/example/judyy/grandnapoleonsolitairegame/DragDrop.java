@@ -137,6 +137,18 @@ public class DragDrop {
             }
         }
 
+        // Compensate for touchscreen control
+        if (whichStack < 0){
+            int row = 40;
+            int i = 44;
+            while(i>row){
+                tempY = stacks[i].getTopSideLocation();
+                if (y > tempY) row = i;
+                i--;
+            }
+            whichStack = calculateWhichStack(x, row-40);
+        }
+
         Log.d("stackBeingDropped", "tempX " + tempX + " tempY " + tempY + " whichStack " + whichStack);
         boolean validStack = canStack(whichStack, card.getCurrentStackID());   // Check if the stack can be stacked.
 
@@ -147,8 +159,11 @@ public class DragDrop {
         // Check if target stack is valid for putting cards on
         if (validStack) {
 
-            // FIXME Record Step, will introduce many bugs
-            recorder.recordStep(card);
+            // Set values to record later
+            float previousX = card.getXPosition();
+            float previousY = card.getYPosition();
+            int previousStack = card.getCurrentStackID();
+            boolean previousCanMove = card.getCanMove();
 
             // Special case. Card is dropped in cellar.
             if (whichStack == 48 && stacks[whichStack].getCurrentCards().size() == 0) {
@@ -211,6 +226,9 @@ public class DragDrop {
                     cardImage.setY(card.getYPosition());
                 }
             }
+            // Record
+            recorder.recordStep(card, previousX, previousY, previousStack, previousCanMove);
+
             // Not valid, add card back to where it was
         } else {
             xToSet = card.getXPosition();
@@ -521,5 +539,42 @@ public class DragDrop {
                 cards[0].getImageView().setColorFilter(Color.argb(50, 0, 0, 0));
             }
         };
+    }
+
+    private int calculateWhichStack(float x, int row){
+        // helper that calculate possible stack the player want to move card to
+        float leftHalf = stacks[20].getLeftSideLocation();
+        float rightHalf = stacks[24].getLeftSideLocation();
+        int res = -1;
+        if (x < leftHalf){
+            if (row<4){
+                res = 16 + row;
+                for (int i=0; i<=4; i++){
+                    if (stacks[i*4+row].getLastCard()!=null){
+                        res = i*4 + row;
+                        break;
+                    }
+                }
+            }
+        } else if (x > rightHalf){
+            if (row<4){
+                res = 24 + row;
+                for (int i=4; i>=0; i--){
+                    if (stacks[i*4+row+24].getLastCard()!=null){
+                        res = i*4 + row + 24;
+                        break;
+                    }
+                }
+            }
+        } else {
+            // middle stack
+            if (row < 4){
+                res = 20 + row;
+            } else {
+                // Redundant
+                res = 48;
+            }
+        }
+        return res;
     }
 }
