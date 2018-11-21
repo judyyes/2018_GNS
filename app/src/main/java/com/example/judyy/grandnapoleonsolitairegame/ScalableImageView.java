@@ -20,8 +20,8 @@ public class ScalableImageView extends AppCompatImageView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int measuredWidth = getContext().getResources().getDisplayMetrics().widthPixels;
-        int measuredHeight = getContext().getResources().getDisplayMetrics().heightPixels;
-        setMeasuredDimension(measuredWidth/16,measuredHeight/7);
+        int measuredWidth = (int) ((double) getContext().getResources().getDisplayMetrics().widthPixels/13.5);
+        int measuredHeight = (int) ((double) getContext().getResources().getDisplayMetrics().heightPixels/5.5);
+        setMeasuredDimension(measuredWidth,measuredHeight);
     }
 }
