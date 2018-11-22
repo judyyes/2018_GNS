@@ -42,11 +42,15 @@ public class Recorder {
                 if (innerStackId != 99){
                     mStacks[innerStackId].getLastCard().setCanMove(false);
                 }
+                previousX = mStacks[previousStack].getLeftSideLocation();
+                previousY = mStacks[previousStack].getTopSideLocation();
             }
             mStacks[previousStack].addCardToStack(previousCard);
             previousCard.setXYPositions(previousX, previousY);
             previousCard.getImageView().setX(previousX);
             previousCard.getImageView().setY(previousY);
+            previousCard.getImageView().bringToFront();
+            previousCard.setCanMove(true);
         }
     }
 

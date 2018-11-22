@@ -76,6 +76,15 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+        final ImageView backBtn = findViewById(R.id.back_btn);
+        backBtn.setImageResource(R.drawable.back_btn);
+        backBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                onBackPressed();
+            }
+        });
+
         final ImageView undoBtn = findViewById(R.id.undo_btn);
         undoBtn.setImageResource(R.drawable.undo_btn);
         undoBtn.setOnClickListener(new View.OnClickListener(){
