@@ -1105,8 +1105,8 @@
 
     <ImageView
         android:id="@+id/zoom_toggle"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintVertical_bias="0.99"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -1117,8 +1117,8 @@
 
     <ImageView
         android:id="@+id/undo_btn"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintVertical_bias="0.99"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -1129,8 +1129,8 @@
 
     <ImageView
         android:id="@+id/hint_btn"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         app:layout_constraintHorizontal_bias="0.99"
         app:layout_constraintVertical_bias="0.01"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -1141,8 +1141,8 @@
 
     <ImageView
         android:id="@+id/back_btn"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintVertical_bias="0.01"
         app:layout_constraintBottom_toBottomOf="parent"

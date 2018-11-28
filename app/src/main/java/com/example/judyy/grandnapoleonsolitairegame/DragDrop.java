@@ -249,7 +249,7 @@ public class DragDrop {
         // Remove the card from its stack & and release the following card
         currentStack.removeCardFromStack(card);
         if (currentStack.getCurrentCards().size() != 0) {
-            currentStack.getLastCard().setCanMove(true);
+            if (currentStack.getStackID() > 23 || currentStack.getStackID() < 20) currentStack.getLastCard().setCanMove(true);
         }else {
             Card tNextCard = nextStack(currentStack).getLastCard();
             if (tNextCard != null) tNextCard.setCanMove(true);

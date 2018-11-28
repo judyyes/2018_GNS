@@ -23,4 +23,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void onClickAboutPage(View v){
+        startActivity(new Intent(this, AboutActivity.class));
+    }
+
+
 }
