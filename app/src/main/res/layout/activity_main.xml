@@ -26,7 +26,7 @@
         android:layout_width="272dp"
         android:layout_height="121dp"
         android:onClick="onClickAboutPage"
-        android:text="@string/Start"
+        android:text="@string/About"
         android:textSize="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
