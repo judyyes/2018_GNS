@@ -3,14 +3,22 @@
 
     <string name="title_activity_game">GameActivity</string>
     <string name="Start">Start</string>
+    <string name="About">About</string>
     <string name="Normal_Difficulty">Normal Difficulty</string>
     <string name="Dummy_Difficulty">A Simple Example</string>
     <string name="No_Hint">Unable to find any good move</string>
     <string name="Win_Dialog">You win</string>
 
-
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="about_info">Three generations of our family have been playing this solitaire for over 100 years. There are other Napoleon solitaires which can be found with a Google search, but this version is considered to be unique. While we believe it was played by Emperor Napoleon while exiled in Elba, but we cannot confirm this. It is intellectually demanding and not all dealt tableaus are solvable.   \n\n Professor Gerald Ratzer</string>
+    <string name="title_home">About</string>
+    <string name="title_dashboard">Instructions</string>
+    <string name="instructions_info">- The game uses a standard deck of 52 cards.\n
+                                     - The goal is to make 4 ordered stacks in the centre. The order can be either up or down, determined by the first card the player put in the middle.\n
+                                     - Only the outermost cards can be moved.\n
+                                     - Cards of same suit that are in sequence can be stacked. Unless the card is on the 5th row.\n
+                                     - Player can put any card in the cellar or on any other empty rows.\n</string>
     <string name="title_notifications">Notifications</string>
+    <string name="a_screenshot_for_game_rule">A screenshot for game rule</string>
+    <string name="game_rule">Game rule</string>
 
 </resources>
