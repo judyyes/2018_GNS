@@ -11,7 +11,7 @@
         android:id="@+id/message"
         android:layout_width="900dp"
         android:layout_height="650dp"
-        android:text="@string/about_info"
+        android:text="@string/gesture_support"
         android:textColor="@color/Lemon"
         android:textSize="25sp"
         app:fontFamily="casual"

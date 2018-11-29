@@ -22,23 +22,20 @@ public class AboutActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.about_info);
-//                    Log.d("about page", "about");
                     setContentView(R.layout.about_page);
                     navigation = (BottomNavigationView) findViewById(R.id.navigation);
                     navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
                     return true;
                 case R.id.navigation_dashboard:
-//                    mTextMessage.setText(R.string.title_dashboard);
-//                    Log.d("about page", "inst");
                     setContentView(R.layout.instructions_page);
                     navigation = (BottomNavigationView) findViewById(R.id.navigation);
                     navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
                     return true;
                 case R.id.navigation_notifications:
-//                    Log.d("about page", "noti");
-                    mTextMessage.setText(R.string.title_notifications);
+                    setContentView(R.layout.gesture_support_page);
+                    navigation = (BottomNavigationView) findViewById(R.id.navigation);
+                    navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
                     return true;
             }
             return false;
