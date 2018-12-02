@@ -9,8 +9,8 @@
     <string name="No_Hint">Unable to find any good move</string>
     <string name="Win_Dialog">You win</string>
 
-    <string name="about_info">Three generations of our family have been playing this solitaire for over 100 years. There are other Napoleon solitaires which can be found with a Google search, but this version is considered to be unique. While we believe it was played by Emperor Napoleon while exiled in Elba, but we cannot confirm this. It is intellectually demanding and not all dealt tableaus are solvable.   \n\n Professor Gerald Ratzer\n\n\n
-                              \nAcknowledgement\n
+    <string name="about_info">Three generations of our family have been playing this solitaire for over 100 years. There are other Napoleon solitaires which can be found with a Google search, but this version is considered to be unique. While we believe it was played by Emperor Napoleon while exiled in Elba, but we cannot confirm this. It is intellectually demanding and not all dealt tableaus are solvable.   \n\n Professor Gerald Ratzer\n\n
+                              Acknowledgement\n
                               This game is a McGill project. In addition to Professor Joseph Vybihal and Professor Gerald Ratzer, we would also like to thank Andrew Lin and Sok Heng Lim, the previous team that worked on this project.</string>
     <string name="title_home">About</string>
     <string name="title_dashboard">Instructions</string>
