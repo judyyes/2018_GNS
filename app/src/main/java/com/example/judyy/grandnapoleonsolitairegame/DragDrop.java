@@ -164,6 +164,7 @@ public class DragDrop {
             float previousY = card.getYPosition();
             int previousStack = card.getCurrentStackID();
             boolean previousCanMove = card.getCanMove();
+            boolean recorded = false;
 
             // Special case. Card is dropped in cellar.
             if (whichStack == 48 && stacks[whichStack].getCurrentCards().size() == 0) {
@@ -189,7 +190,8 @@ public class DragDrop {
                 xToSet = stackToDrop.getLeftSideLocation();
                 yToSet = stackToDrop.getTopSideLocation();
                 moveCard(currentStack, card, stackToDrop, xToSet, yToSet);
-
+                recorder.recordStep(card, previousX, previousY, previousStack, previousCanMove);
+                recorded = true;
                 while(currentStack.getCurrentCards().size() != 0  && (currentStack.getStackID() >23 || currentStack.getStackID() < 20)){
                     card = currentStack.getLastCard();
                     actionUp(card, x, y);
@@ -215,11 +217,17 @@ public class DragDrop {
                     }
 
                     moveCard(currentStack, card, stackToDrop, xToSet, yToSet);
-
+                    recorder.recordStep(card, previousX, previousY, previousStack, previousCanMove);
+                    recorded = true;
                     while(currentStack.getCurrentCards().size() != 0 && (currentStack.getStackID() >23 || currentStack.getStackID() < 20)){
                         card = currentStack.getLastCard();
+                        previousX = card.getXPosition();
+                        previousY = card.getYPosition();
+                        previousStack = card.getCurrentStackID();
+                        previousCanMove = card.getCanMove();
                         cardImage = card.getImageView();
                         moveCard(currentStack, card, stackToDrop, xToSet, yToSet);
+                        recorder.recordStep(card, previousX, previousY, previousStack, previousCanMove);
                     }
                 } else {
                     cardImage.setX(card.getXPosition());
@@ -227,7 +235,7 @@ public class DragDrop {
                 }
             }
             // Record
-            recorder.recordStep(card, previousX, previousY, previousStack, previousCanMove);
+            if (!recorded) recorder.recordStep(card, previousX, previousY, previousStack, previousCanMove);
 
             // Not valid, add card back to where it was
         } else {
