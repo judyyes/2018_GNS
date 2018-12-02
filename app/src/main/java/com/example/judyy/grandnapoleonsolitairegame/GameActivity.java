@@ -101,6 +101,10 @@ public class GameActivity extends AppCompatActivity {
         hintBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                for (int i=0; i<52; i++){
+                    ImageView cardImg = cards[i].getImageView();
+                    cardImg.clearColorFilter();
+                }
                 Hint mHint = solver.requestHint();
                 if (mHint == null){
                     // TODO Display dialog
