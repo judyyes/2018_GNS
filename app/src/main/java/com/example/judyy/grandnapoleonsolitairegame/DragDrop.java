@@ -343,8 +343,6 @@ public class DragDrop {
             haveCards = true;
         }
 
-        if ((whichStack == stackID + 4 && stackID < 16) || (stackID == whichStack + 4 && stackID > 27 && stackID < 44)) return true;
-
         // If first column on the left, can only stack if there are cards
         if (whichStack < 4) {
             if (haveCards) {
