@@ -137,20 +137,26 @@ public class DragDrop {
             }
         }
 
-        // Compensate for touchscreen control
-        if (whichStack < 0){
+
+
+        Log.d("stackBeingDropped", "tempX " + tempX + " tempY " + tempY + " whichStack " + whichStack );
+        boolean validStack = canStack(whichStack, card.getCurrentStackID());   // Check if the stack can be stacked.
+
+        if (!validStack){
+            // Compensate for touchscreen control
+
             int row = 40;
             int i = 44;
-            while(i>row){
+            while(i>=row){
                 tempY = stacks[i].getTopSideLocation();
-                if (y > tempY) row = i;
+                if (y >= tempY) row = i;
                 i--;
             }
             whichStack = calculateWhichStack(x, row-40);
+            validStack = canStack(whichStack, card.getCurrentStackID());
         }
 
-        Log.d("stackBeingDropped", "tempX " + tempX + " tempY " + tempY + " whichStack " + whichStack);
-        boolean validStack = canStack(whichStack, card.getCurrentStackID());   // Check if the stack can be stacked.
+        Log.d("stackBeingDropped", "validStack " + String.valueOf(validStack));
 
         // Location where the card's ImageView should be set to
         float xToSet = 0;
@@ -478,10 +484,11 @@ public class DragDrop {
                 direction = (c2.getNumber() - c1.getNumber());
                 solver.setDirection(direction);
             } else {
-                return (c2.getNumber() - c1.getNumber()) == direction;
+                return (c1.getSuit() == c2.getSuit()) && ((c2.getNumber() - c1.getNumber()) == direction);
             }
         }
         if (c1.getSuit() == c2.getSuit()) {
+
             if ((Math.abs(c1.getNumber() - c2.getNumber()) == 1) || (Math.abs(c1.getNumber() - c2.getNumber()) == 12)) {
                 return true;
             }
