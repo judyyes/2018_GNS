@@ -25,5 +25,6 @@
                                    Auto Stack Move\n
                                    Stack of cards are always moved together, once user has moved the top card successfully, the subsequent cards will be moved automatically to the same destination.</string>
     <string name="game_rule">Game rule</string>
+    <string name="grand_napoleon_solitaire">Grand Napoleon Solitaire</string>
 
 </resources>
