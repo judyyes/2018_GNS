@@ -9,11 +9,11 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/select_button"
-        android:layout_width="272dp"
-        android:layout_height="121dp"
+        android:layout_width="220dp"
+        android:layout_height="100dp"
         android:onClick="onClickDifficultySelection"
         android:text="@string/Start"
-        android:textSize="45dp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,16 +23,39 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/about_button"
-        android:layout_width="272dp"
-        android:layout_height="121dp"
+        android:layout_width="220dp"
+        android:layout_height="100dp"
         android:onClick="onClickAboutPage"
         android:text="@string/About"
-        android:textSize="45dp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.036" />
+
+    <TextView
+        android:id="@+id/Grand_Napoleon_Solitaire"
+        android:layout_width="530dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/grand_napoleon_solitaire"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:fontFamily="casual"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.983" />
 
 </android.support.constraint.ConstraintLayout>
